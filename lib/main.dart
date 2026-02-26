@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portal1409/config.dart';
-import 'package:get_it/get_it.dart';
-import 'package:portal1409/repository/auth/login_repository.dart';
 import 'package:portal1409/router/router.dart';
+import 'package:portal1409/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
     final AppRouter router = AppRouter();
     return MaterialApp.router(
       title: 'Портал 1409',
-      theme: ThemeData(),
+      theme: darkTheme,
       routerConfig: router.config(),
     );
   }
