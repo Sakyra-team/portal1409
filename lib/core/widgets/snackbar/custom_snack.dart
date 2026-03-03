@@ -8,6 +8,8 @@ void showSnack(
   final messenger = snackKey.currentState;
   if (messenger == null) return;
 
+  debugPrint("Snack");
+
   messenger
     ..hideCurrentSnackBar()
     ..showSnackBar(

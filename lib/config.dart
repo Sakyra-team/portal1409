@@ -1,8 +1,4 @@
-import 'package:dio/dio.dart';
-import 'package:get_it/get_it.dart';
-import 'package:portal1409/api/api.dart';
-import 'package:portal1409/core/core.dart';
-import 'package:portal1409/repository/auth/login_repository.dart';
+part of 'main.dart';
 
 class DioInterceptor extends Interceptor {
   final LoginRepository loginManager;
@@ -79,29 +75,31 @@ class DioInterceptor extends Interceptor {
   }
 }
 
+final GetIt getIt = GetIt.instance;
+final LoginRepository loginManager = LoginRepository();
+final Dio dio = Dio(
+  BaseOptions(
+    validateStatus: (status) {
+      return true;
+    },
+  ),
+);
+final ApiClient apiClient = ApiClient(dio);
+final talker = Talker();
+
 void loadConfig() async {
-  final GetIt getIt = GetIt.instance;
-  final LoginRepository loginManager = LoginRepository();
-  final Dio dio = Dio(
-    BaseOptions(
-      validateStatus: (status) {
-        return true;
-      },
+  dio.interceptors.add(
+    TalkerDioLogger(
+      talker: talker,
+      settings: const TalkerDioLoggerSettings(
+        printRequestHeaders: true,
+        printResponseHeaders: true,
+        printResponseMessage: true,
+      ),
     ),
   );
-  final ApiClient apiClient = ApiClient(dio);
-  // dio.interceptors.add(
-  //   TalkerDioLogger(
-  //     talker: talker,
-  //     settings: const TalkerDioLoggerSettings(
-  //       printRequestHeaders: true,
-  //       printResponseHeaders: true,
-  //       printResponseMessage: true,
-  //     ),
-  //   ),
-  // );
 
-  // dio.interceptors.add(DioInterceptor(loginManager, dio));
+  dio.interceptors.add(DioInterceptor(loginManager, dio));
 
   getIt.registerLazySingleton<ApiClient>(() => apiClient);
   getIt.registerLazySingleton<LoginRepository>(() => loginManager);
