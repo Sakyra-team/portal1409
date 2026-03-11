@@ -27,6 +27,70 @@ class LoginRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MainScreen]
+class MainRoute extends PageRouteInfo<void> {
+  const MainRoute({List<PageRouteInfo>? children})
+    : super(MainRoute.name, initialChildren: children);
+
+  static const String name = 'MainRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MainScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [NotificationsScreen]
+class NotificationsRoute extends PageRouteInfo<void> {
+  const NotificationsRoute({List<PageRouteInfo>? children})
+    : super(NotificationsRoute.name, initialChildren: children);
+
+  static const String name = 'NotificationsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const NotificationsScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [SearchScreen]
+class SearchRoute extends PageRouteInfo<void> {
+  const SearchRoute({List<PageRouteInfo>? children})
+    : super(SearchRoute.name, initialChildren: children);
+
+  static const String name = 'SearchRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SearchScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [ServicesScreen]
+class ServicesRoute extends PageRouteInfo<void> {
+  const ServicesRoute({List<PageRouteInfo>? children})
+    : super(ServicesRoute.name, initialChildren: children);
+
+  static const String name = 'ServicesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ServicesScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [SmsScreen]
 class SmsRoute extends PageRouteInfo<SmsRouteArgs> {
   SmsRoute({
@@ -71,4 +135,20 @@ class SmsRouteArgs {
 
   @override
   int get hashCode => key.hashCode ^ phoneNumber.hashCode;
+}
+
+/// generated route for
+/// [TabScreen]
+class TabRoute extends PageRouteInfo<void> {
+  const TabRoute({List<PageRouteInfo>? children})
+    : super(TabRoute.name, initialChildren: children);
+
+  static const String name = 'TabRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TabScreen();
+    },
+  );
 }

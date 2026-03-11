@@ -15,23 +15,51 @@ final ThemeData darkTheme = ThemeData(
     onError: const .fromARGB(255, 255, 138, 138),
     surface: Colors.black,
     onSurface: Colors.white,
+    
   ),
-
 
   scaffoldBackgroundColor: Colors.black,
 
-  cardColor: .fromARGB(217, 24, 23, 27),
+  cardColor: const .fromARGB(200, 24, 23, 27),
+  // cardColor: const .fromARGB(230, 0, 0, 0),
 
-  iconTheme: IconThemeData(
-    color: Colors.white,
-    size: 32
+  iconTheme: IconThemeData(color: Colors.white, size: 32),
+
+  snackBarTheme: SnackBarThemeData(
+    actionTextColor: Colors.white,
+    contentTextStyle: darkTextTheme.labelMedium?.copyWith(color: Colors.white),
+    backgroundColor: const .fromARGB(217, 24, 23, 27),
   ),
 
-  buttonTheme: ButtonThemeData(
-    buttonColor: Colors.green
-  ),
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    type: BottomNavigationBarType.fixed,
+    selectedItemColor: Colors.white,
+    unselectedItemColor: Colors.white,
 
-  
+    backgroundColor: Colors.black,
+
+    showUnselectedLabels: true,
+
+    unselectedIconTheme: IconThemeData(
+      color: Color.fromARGB(255, 156, 163, 175),
+    ),
+
+    selectedIconTheme: IconThemeData(color: const .fromARGB(255, 71, 73, 226)),
+
+    selectedLabelStyle: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+      fontFamily: "Montserrat",
+    ),
+
+    unselectedLabelStyle: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+      fontFamily: "Montserrat",
+    ),
+  ),
 
   textTheme: darkTextTheme,
 );

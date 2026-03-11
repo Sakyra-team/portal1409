@@ -1,0 +1,74 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:portal1409/core/core.dart';
+import 'package:portal1409/features/home/main/widgets/widgets.dart';
+
+@RoutePage()
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final Map<int, List> list = {
+      0: [Icon(Icons.abc, size: 52), "Разрешения на выход", () {}],
+      1: [Icon(Icons.abc, size: 52), "Разрешения на лифт", () {}],
+      2: [Icon(Icons.abc, size: 52), "Громкая связь", () {}],
+      3: [Icon(Icons.abc, size: 52), "Заказ пропуска", () {}],
+    };
+    return Scaffold(
+      body: header([
+        Center(
+          child: Padding(
+            padding: const .only(top: 40, left: 12, right: 12),
+            child: ListView(
+              children: [
+                Row(
+                  mainAxisAlignment: .spaceBetween,
+                  children: [
+                    Text(" Главная", style: theme.textTheme.titleLarge),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset(
+                        "assets/images/account_icon.png",
+                        width: 64,
+                        height: 64,
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 32),
+
+                Row(
+                  mainAxisAlignment: .spaceBetween,
+                  crossAxisAlignment: .start,
+                  children: [ElevatorWidget(), LiquidProgress()],
+                ),
+
+                const SizedBox(height: 32),
+
+                GridView.count(
+                  physics: NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 7,
+                  mainAxisSpacing: 8,
+                  childAspectRatio: 1.44,
+                  shrinkWrap: true,
+                  children: List.generate(
+                    4,
+                    (index) => BigCard(
+                      icon: list[index]?[0],
+                      text: list[index]?[1],
+                      func: list[index]?[2],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+}

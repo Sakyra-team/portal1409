@@ -87,7 +87,9 @@ final Dio dio = Dio(
 final ApiClient apiClient = ApiClient(dio);
 final talker = Talker();
 
-void loadConfig() async {
+
+
+void loadConfig() {
   dio.interceptors.add(
     TalkerDioLogger(
       talker: talker,

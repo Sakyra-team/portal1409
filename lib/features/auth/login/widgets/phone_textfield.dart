@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portal1409/features/auth/login/bloc/login_bloc.dart';
 
 class PhoneTextField extends StatelessWidget {
-  const PhoneTextField({
-    super.key,
-    required this.controller,
-  });
+  const PhoneTextField({super.key, required this.controller});
 
   final TextEditingController controller;
 
@@ -30,8 +29,12 @@ class PhoneTextField extends StatelessWidget {
                 keyboardType: .number,
                 autofocus: true,
                 style: theme.textTheme.titleSmall,
+                onSubmitted: (value) => controller.text.length == 10
+                    ? context.read<LoginBloc>().add(
+                        LoadLogin(phoneNumber: "7${controller.text}"),
+                      )
+                    : null,
                 decoration: InputDecoration(
-                  
                   contentPadding: .symmetric(horizontal: 12),
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,

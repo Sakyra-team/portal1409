@@ -26,6 +26,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(LoginException());
       }
     });
+    on<InitialLoginEvent>((event, emit) {
+      emit(LoginInitial());
+    });
   }
 
   final ApiClient apiClient;

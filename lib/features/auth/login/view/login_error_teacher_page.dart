@@ -6,46 +6,36 @@ import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/auth/login/bloc/login_bloc.dart';
 import 'package:portal1409/features/auth/login/widgets/widgets.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.controller});
+class LoginPageErrorTeacher extends StatefulWidget {
+  const LoginPageErrorTeacher({super.key, required this.controller});
 
   final TextEditingController controller;
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPageErrorTeacher> createState() => _LoginPageErrorTeacherState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  late bool isDisable = true;
+class _LoginPageErrorTeacherState extends State<LoginPageErrorTeacher> {
+  late int lastTextFieldLenght;
 
   @override
   void initState() {
+    lastTextFieldLenght = widget.controller.text.length;
     widget.controller.addListener(textFieldListner);
-    widget.controller.text.length == 10 ? isDisable = false : isDisable = true;
     super.initState();
   }
 
   @override
   void dispose() {
-    super.dispose();
     widget.controller.removeListener(textFieldListner);
+    super.dispose();
   }
 
   void textFieldListner() {
-    if (widget.controller.text.length == 10) {
-      setState(() {
-        isDisable = false;
-      });
-    } else if (widget.controller.text.length > 10) {
-      widget.controller.text = widget.controller.text.substring(
-        0,
-        widget.controller.text.length - 1,
-      );
-    } else {
-      setState(() {
-        isDisable = true;
-      });
+    if (lastTextFieldLenght > widget.controller.text.length) {
+      context.read<LoginBloc>().add(InitialLoginEvent());
     }
+    
   }
 
   @override
@@ -59,13 +49,13 @@ class _LoginPageState extends State<LoginPage> {
         Text("Добро пожаловать!", style: theme.textTheme.titleLarge),
         const SizedBox(height: 60),
 
-        PhoneTextField(controller: widget.controller),
+        PhoneTextFieldError(controller: widget.controller),
 
         const SizedBox(height: 32),
 
         BasicButton(
           text: "Далее",
-          isDisable: isDisable,
+          isDisable: false,
           func: () {
             context.read<LoginBloc>().add(
               LoadLogin(phoneNumber: "7${widget.controller.text}"),
