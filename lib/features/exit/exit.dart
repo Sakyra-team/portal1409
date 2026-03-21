@@ -1,0 +1,1 @@
+export './list_exit/view/view.dart';

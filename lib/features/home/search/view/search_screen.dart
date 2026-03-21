@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:portal1409/core/core.dart';
 
 @RoutePage()
 class SearchScreen extends StatelessWidget {
@@ -7,6 +8,13 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    final theme = Theme.of(context);
+    return Scaffold(
+      body: header([
+        Center(
+          child: Text("В разработке 🔥", style: theme.textTheme.titleLarge,),
+        )
+      ]),
+    );
   }
 }

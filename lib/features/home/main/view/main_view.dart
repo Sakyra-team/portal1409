@@ -11,10 +11,10 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final Map<int, List> list = {
-      0: [Icon(Icons.abc, size: 52), "Разрешения на выход", () {}],
-      1: [Icon(Icons.abc, size: 52), "Разрешения на лифт", () {}],
-      2: [Icon(Icons.abc, size: 52), "Громкая связь", () {}],
-      3: [Icon(Icons.abc, size: 52), "Заказ пропуска", () {}],
+      0: [Icon(Icons.directions_run_outlined, size: 48), "Разрешения на выход", () => context.router.pushPath("/exit/list")],
+      1: [Icon(Icons.elevator_outlined, size: 48), "Разрешения на лифт", () {}],
+      2: [Icon(Icons.speaker_outlined, size: 48), "Громкая связь", () {}],
+      3: [Icon(Icons.person_add_alt_1_outlined, size: 48), "Заказ пропуска", () {}],
     };
     return Scaffold(
       body: header([

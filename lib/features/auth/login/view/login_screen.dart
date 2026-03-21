@@ -42,8 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   } else if (state is LoginLoaded) {
                     context.router.push(
                       SmsRoute(phoneNumber: "7${controller.text}"),
-                    );
-                  }
+                    );}
                 },
                 child: BlocBuilder(
                   bloc: context.read<LoginBloc>(),

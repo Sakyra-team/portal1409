@@ -85,10 +85,10 @@ packages:
     dependency: transitive
     description:
       name: build_config
-      sha256: "4f64382b97504dc2fcdf487d5aae33418e08b4703fc21249e4db6d804a4d0187"
+      sha256: "4070d2a59f8eec34c97c86ceb44403834899075f66e8a9d59706f8e7834f6f71"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.0"
   build_daemon:
     dependency: transitive
     description:
@@ -101,10 +101,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_runner
-      sha256: "39ad4ca8a2876779737c60e4228b4bcd35d4352ef7e14e47514093edc012c734"
+      sha256: "7981eb922842c77033026eb4341d5af651562008cdb116bdfa31fc46516b6462"
       url: "https://pub.dev"
     source: hosted
-    version: "2.11.1"
+    version: "2.12.2"
   built_collection:
     dependency: transitive
     description:
@@ -704,6 +704,62 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.2.3"
+  shared_preferences:
+    dependency: "direct main"
+    description:
+      name: shared_preferences
+      sha256: "2939ae520c9024cb197fc20dee269cd8cdbf564c8b5746374ec6cacdc5169e64"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.4"
+  shared_preferences_android:
+    dependency: transitive
+    description:
+      name: shared_preferences_android
+      sha256: "8374d6200ab33ac99031a852eba4c8eb2170c4bf20778b3e2c9eccb45384fb41"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.21"
+  shared_preferences_foundation:
+    dependency: transitive
+    description:
+      name: shared_preferences_foundation
+      sha256: "4e7eaffc2b17ba398759f1151415869a34771ba11ebbccd1b0145472a619a64f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.6"
+  shared_preferences_linux:
+    dependency: transitive
+    description:
+      name: shared_preferences_linux
+      sha256: "580abfd40f415611503cae30adf626e6656dfb2f0cee8f465ece7b6defb40f2f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
+  shared_preferences_platform_interface:
+    dependency: transitive
+    description:
+      name: shared_preferences_platform_interface
+      sha256: "57cbf196c486bc2cf1f02b85784932c6094376284b3ad5779d1b1c6c6a816b80"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
+  shared_preferences_web:
+    dependency: transitive
+    description:
+      name: shared_preferences_web
+      sha256: c49bd060261c9a3f0ff445892695d6212ff603ef3115edbb448509d407600019
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.3"
+  shared_preferences_windows:
+    dependency: transitive
+    description:
+      name: shared_preferences_windows
+      sha256: "94ef0f72b2d71bc3e700e025db3710911bd51a71cefb65cc609dd0d9a982e3c1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   shelf:
     dependency: transitive
     description:
@@ -782,15 +838,23 @@ packages:
     source: hosted
     version: "1.4.1"
   talker:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: talker
-      sha256: f98494dd64c62f21d4b92ccb8b7145003c7cc93030988cb3ad8048601ee71dfb
+      sha256: "46a60c6014a870a71ab8e3fa22f9580a8d36faf9b39431dcf124940601c0c266"
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.14"
+    version: "5.1.15"
+  talker_bloc_logger:
+    dependency: "direct main"
+    description:
+      name: talker_bloc_logger
+      sha256: "995154711cdfb240d5cee6f22b25a3f6092db85f7065b66d6ff8483d86c9890c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.15"
   talker_dio_logger:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: talker_dio_logger
       sha256: "96f387947cf3f890e382dbf7f1c56a78b3e7b7ae8a5c821de3285100cbfdf877"
@@ -801,10 +865,10 @@ packages:
     dependency: transitive
     description:
       name: talker_logger
-      sha256: cf58477217f02aaf7450f74ca081c633a151e5132203ead02520a403db8ecf21
+      sha256: "70112d016d7b978ccb7ef0b0f4941e0f0b0de88d80589db43143cea1d744eae0"
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.14"
+    version: "5.1.15"
   term_glyph:
     dependency: transitive
     description:

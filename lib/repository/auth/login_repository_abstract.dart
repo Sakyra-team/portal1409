@@ -1,4 +1,4 @@
-abstract interface class LoginrepositoryInterface {
+abstract interface class LoginRepositoryAbstract {
   Future<void> saveTokens(String session, String rememberToken);
   Future<void> logout();
   Future<String?> getSession();

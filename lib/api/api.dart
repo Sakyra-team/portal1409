@@ -4,10 +4,10 @@ import 'package:dio/dio.dart';
 
 part 'api.g.dart';
 
-// const domainName = "http://10.0.2.2:5000/api";
-// const domainName = "https://my1409.ru/api";
-// const domainName = "http://192.168.1.75:5000/api";
-const domainName = "http://10.159.17.144:1409/api";
+// final domainName = "http://10.0.2.2:5000/api";
+// final domainName = "https://my1409.ru/api";
+// final domainName = "http://192.168.1.75:1409/api";
+const domainName = "http://10.56.88.144:1409/api";
 
 @RestApi(baseUrl: domainName)
 abstract class ApiClient {

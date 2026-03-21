@@ -24,10 +24,10 @@ class TabScreen extends StatelessWidget {
             currentIndex: tabsRouter.activeIndex,
             onTap: (index) => tabsRouter.setActiveIndex(index),
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Главная"),
-              BottomNavigationBarItem(icon: Icon(Icons.list_outlined), label: "Сервисы"),
-              BottomNavigationBarItem(icon: Icon(Icons.notifications_outlined), label: "Уведомления"),
-              BottomNavigationBarItem(icon: Icon(Icons.search_outlined), label: "Поиск"),
+              BottomNavigationBarItem(icon:Icon(Icons.home_outlined), label: "Главная"),
+              BottomNavigationBarItem(icon:Icon(Icons.list_outlined), label: "Сервисы"),
+              BottomNavigationBarItem(icon:Icon(Icons.notifications_outlined), label: "Уведомления"),
+              BottomNavigationBarItem(icon:Icon(Icons.search_outlined), label: "Поиск"),
             ],
           ),
         );

@@ -5,28 +5,6 @@ import 'package:flutter/material.dart';
 final GlobalKey<ScaffoldMessengerState> snackKey =
     GlobalKey<ScaffoldMessengerState>();
 
-// void showSnack(String text) {
-//   final messenger = snackKey.currentState;
-//   if (messenger == null) return;
-
-//   messenger
-//     ..hideCurrentSnackBar()
-//     ..showSnackBar(
-//       SnackBar(
-//         behavior: SnackBarBehavior.floating,
-//         animation: AnimationController(
-//     vsync: this,
-//     duration: const Duration(milliseconds: 500),
-//     reverseDuration: const Duration(milliseconds: 500),
-//   ),
-//         content: BackdropFilter(
-//           filter: ImageFilter.blur(sigmaX: 26.0, sigmaY: 26.0),
-//           child: Text(text),
-//         ),
-//       ),
-//     );
-// }
-
 void showSnack(String text) {
   final messenger = snackKey.currentState;
   if (messenger == null) return;
@@ -35,7 +13,7 @@ void showSnack(String text) {
     ..hideCurrentSnackBar()
     ..showSnackBar(
       SnackBar(
-        behavior: SnackBarBehavior.floating,
+        behavior: .floating,
         backgroundColor: Colors.transparent, // Прозрачный фон для кастомного стиля
         elevation: 0,
         content: TweenAnimationBuilder<Offset>(

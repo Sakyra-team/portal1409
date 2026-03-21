@@ -11,6 +11,22 @@
 part of 'router.dart';
 
 /// generated route for
+/// [ListExitScreen]
+class ListExitRoute extends PageRouteInfo<void> {
+  const ListExitRoute({List<PageRouteInfo>? children})
+    : super(ListExitRoute.name, initialChildren: children);
+
+  static const String name = 'ListExitRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ListExitScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [LoginScreen]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})

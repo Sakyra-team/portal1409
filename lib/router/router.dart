@@ -27,5 +27,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SearchRoute.page, path: "search"),
       ]
     ),
+
+    AutoRoute(page: ListExitRoute.page, path: "/exit/list")
   ];
 }
