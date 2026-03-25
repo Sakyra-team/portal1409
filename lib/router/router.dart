@@ -8,7 +8,7 @@ part 'router.gr.dart';
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => const RouteType.cupertino();
+  RouteType get defaultRouteType => const RouteType.material();
 
   @override
   List<AutoRoute> get routes => [
@@ -25,9 +25,24 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: ServicesRoute.page, path: "services"),
         AutoRoute(page: NotificationsRoute.page, path: "notifications"),
         AutoRoute(page: SearchRoute.page, path: "search"),
-      ]
+      ],
     ),
 
-    AutoRoute(page: ListExitRoute.page, path: "/exit/list")
+    AutoRoute(
+      page: ListExitRoute.page,
+      path: "/exit/list",
+      guards: [AuthGuard()],
+    ),
+    AutoRoute(
+      page: CreateExitRoute.page,
+      path: "/exit/create",
+      guards: [AuthGuard()],
+    ),
+
+
+    AutoRoute(page: AccountRoute.page, path: "/account"),
+    AutoRoute(page: SettingsRoute.page, path: "/settings", guards: [AuthGuard()],),
+    AutoRoute(page: SecurityRoute.page, path: "/security", guards: [AuthGuard()],),
+    AutoRoute(page: DevicesRoute.page, path: "/devices", guards: [AuthGuard()],),
   ];
 }

@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portal1409/core/widgets/cards/basic_card.dart';
+import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/home/services/cubit/service_cubit.dart';
 import 'package:portal1409/features/home/services/domain/service_domain.dart';
 import 'package:portal1409/features/home/services/domain/service_enum.dart';
+import 'package:portal1409/router/router.dart';
 
 class ServicePage extends StatelessWidget {
   const ServicePage({super.key, required this.state});
@@ -20,11 +22,14 @@ class ServicePage extends StatelessWidget {
           children: [
             Text(" Сервисы", style: theme.textTheme.titleLarge),
             IconButton(
-              onPressed: () {},
-              icon: Image.asset(
-                "assets/images/account_icon.png",
-                width: 64,
-                height: 64,
+              onPressed: () => context.router.push(AccountRoute(heroTag: HeroTags.fromServiceToAccount)),
+              icon: Hero(
+                tag: HeroTags.fromServiceToAccount,
+                child: Image.asset(
+                  "assets/images/account_icon.png",
+                  width: 64,
+                  height: 64,
+                ),
               ),
             ),
           ],

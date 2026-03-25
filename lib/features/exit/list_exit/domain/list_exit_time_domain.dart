@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
-
 String calcListExitDate(String text) {
   final splitText = text.split(" ");
   final String day = splitText[1];
   late String mount = splitText[2];
-  debugPrint(splitText[3]);
   final String year = splitText[3].substring(splitText[3].length - 2);
 
   if (splitText[2] == "Jan") {
@@ -33,9 +30,12 @@ String calcListExitDate(String text) {
     mount = "12";
   }
 
-  return "$day:$mount:$year";
+  return "$day.$mount.$year";
 }
 
 String calcListExitTime(String text) {
-  return "";
+  final splitText = text.split(" ");
+  final time = splitText[4].split(":");
+
+  return "${time[0]}:${time[1]}";
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portal1409/theme/base_theme.dart';
 
 final ThemeData darkTheme = ThemeData(
-  brightness: Brightness.dark,
+  useMaterial3: true,
+  brightness: .dark,
 
   primaryColor: const .fromARGB(255, 71, 73, 226),
   colorScheme: ColorScheme(
@@ -21,6 +22,7 @@ final ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: Colors.black,
 
   cardColor: const .fromARGB(200, 24, 23, 27),
+  hintColor: const .fromARGB(255, 51, 51, 53),
   // cardColor: const .fromARGB(230, 0, 0, 0),
 
   iconTheme: IconThemeData(color: Colors.white, size: 32),

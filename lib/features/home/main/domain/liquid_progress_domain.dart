@@ -10,7 +10,7 @@ List<String?> liquidProgressDomain() {
       return (["${30 - now.minute} мин.", "До начала уроков, далее урок(45 мин.)"]);
     }
     return ([
-      "${8 - now.hour} ${30 - now.minute}",
+      "${8 - now.hour} ${30 - now.minute} мин.",
       "До начала уроков, далее урок(45 мин.)",
     ]);
   }
@@ -28,7 +28,7 @@ List<String?> liquidProgressDomain() {
       now.minute >= 25 &&
       now.minute <= 10) {
     return ([
-      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"}.",
+      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
       "До конца урока, далее перемена(15 мин.)",
     ]);
   } else if (now.hour >= 10 &&
@@ -36,7 +36,7 @@ List<String?> liquidProgressDomain() {
       now.minute >= 25 &&
       now.minute <= 10) {
     return ([
-      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"}.",
+      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
 
       "До конца урока, далее перемена(15 мин.)",
     ]);
@@ -45,7 +45,7 @@ List<String?> liquidProgressDomain() {
       now.minute >= 25 &&
       now.minute <= 10) {
     return ([
-      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"}.",
+      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
 
       "До конца урока, далее перемена(15 мин.)",
     ]);
@@ -54,7 +54,7 @@ List<String?> liquidProgressDomain() {
       now.minute >= 30 &&
       now.minute <= 15) {
     return ([
-      "${now.minute > 30 ? "${15 + (60 - now.minute)}" : "${15 - now.minute}"}.",
+      "${now.minute > 30 ? "${15 + (60 - now.minute)}" : "${15 - now.minute}"} мин.",
 
       "До конца урока, далее большая перемена(20 мин.)",
     ]);
@@ -63,7 +63,7 @@ List<String?> liquidProgressDomain() {
       now.minute >= 25 &&
       now.minute <= 10) {
     return ([
-      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"}.",
+      "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
 
       "До конца урока, далее перемена(10 мин.)",
     ]);
@@ -72,13 +72,13 @@ List<String?> liquidProgressDomain() {
       now.minute >= 20 &&
       now.minute <= 05) {
     return ([
-      "${now.minute > 20 ? "${5 + (60 - now.minute)}" : "${5 - now.minute}"}.",
+      "${now.minute > 20 ? "${5 + (60 - now.minute)} " : "${5 - now.minute}"} мин.",
 
       "До конца урока, далее перемена(5 мин.)",
     ]);
   } else if (now.hour == 15 && now.minute >= 10 && now.minute <= 55) {
-    return (["${60 - now.minute}", 
-      "До конца урока, далее уроки закончились",]);
+    return (["${60 - now.minute} мин.", 
+      "До конца урока, далее уроков нет!",]);
   }
 
 

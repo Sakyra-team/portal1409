@@ -8,10 +8,10 @@ part 'list_exit_state.dart';
 class ListExitCubit extends Cubit<ListExitState> {
   ListExitCubit({required this.apiClient}) : super(ListExitLoading());
 
-  Future<List> loadListExit() async {
+  Future<List> loadListExit(bool isOnlyMy) async {
     emit(ListExitLoading());
-    final response = await apiClient.getExitAppHistory();
-    response.isNotEmpty ? emit(ListExitLoaded(list: response)) : emit(ListExitEmpty());
+    final response = await apiClient.getExitAppHistory(!isOnlyMy);
+    response.isNotEmpty ? emit(ListExitLoaded(list: response, isOnlyMy: isOnlyMy)) : emit(ListExitEmpty(isOnlyMy: isOnlyMy));
     return response;
   }
 

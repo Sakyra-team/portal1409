@@ -4,9 +4,9 @@ import 'package:dio/dio.dart';
 
 part 'api.g.dart';
 
-// final domainName = "http://10.0.2.2:5000/api";
+// const domainName = "http://10.0.2.2:1409/api";
 // final domainName = "https://my1409.ru/api";
-// final domainName = "http://192.168.1.75:1409/api";
+// const domainName = "http://192.168.1.75:1409/api";
 const domainName = "http://10.56.88.144:1409/api";
 
 @RestApi(baseUrl: domainName)
@@ -121,7 +121,7 @@ abstract class ApiClient {
   */
 
   @GET("/teacher/history") // Get exit application histroy
-  Future<List<HistoryExitAppInfo>> getExitAppHistory();
+  Future<List<HistoryExitAppInfo>> getExitAppHistory(@Query("all") bool? isAll,);
   /*
   output data:
   [{

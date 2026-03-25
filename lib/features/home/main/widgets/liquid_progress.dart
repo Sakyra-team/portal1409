@@ -14,6 +14,7 @@ class LiquidProgress extends StatelessWidget {
       child: StreamBuilder<List<String?>>(
         stream: LiquidProgressService().statusStream,
         initialData: const ["Загрузка...", null],
+        
         builder: (context, snapshot) => LiquidLinearProgressIndicator(
           value: 0.25,
           valueColor: AlwaysStoppedAnimation(theme.primaryColor),

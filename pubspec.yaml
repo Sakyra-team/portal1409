@@ -1,5 +1,5 @@
 name: portal1409
-description: "A new Flutter project."
+description: "Portal app for teacher"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
@@ -10,24 +10,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  url_launcher: ^6.3.0
+  url_launcher: ^6.3.2
 
   cupertino_icons: ^1.0.8
   retrofit: ^4.9.2
   flutter_secure_storage: ^10.0.0
   auto_route: ^11.1.0
   get_it: ^9.2.1
-  dio: ^5.9.1
+  dio: ^5.9.2
   json_annotation: ^4.11.0
-  flutter_svg: ^2.2.3
+  flutter_svg: ^2.2.4
   bloc: ^9.2.0
   flutter_bloc: ^9.1.1
   meta: ^1.17.0
   equatable: ^2.0.8
   liquid_progress_indicator_v2: ^0.5.0
   
-  talker: ^5.1.14
-  talker_dio_logger: ^5.1.14
+  talker: ^5.1.15
+  talker_dio_logger: ^5.1.15
   talker_bloc_logger: ^5.1.15
   shared_preferences: ^2.5.4
 
@@ -39,9 +39,9 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^6.0.0
-  build_runner: ^2.12.2
+  build_runner: ^2.13.1
   retrofit_generator: ^10.2.3
-  json_serializable: ^6.13.0
+  json_serializable: ^6.13.1
   auto_route_generator: ^10.5.0
 
 flutter:

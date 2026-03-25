@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BigCard extends StatelessWidget {
   const BigCard({super.key, required this.icon, required this.text, required this.func, });
 
-  final Icon icon;
+  final Widget icon;
   final String text;
   final VoidCallback func;
 
@@ -19,7 +19,7 @@ class BigCard extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: theme.cardColor,
-              border: .all(color: const .fromARGB(255, 51, 51, 53)),
+              border: .all(color: theme.hintColor),
               borderRadius: .circular(15),
             ),
             child: Center(
@@ -28,6 +28,7 @@ class BigCard extends StatelessWidget {
                 crossAxisAlignment: .center,
                 children: [
                   icon,
+                  const SizedBox(height: 3,),
                   Text(
                     text,
                     softWrap: true,

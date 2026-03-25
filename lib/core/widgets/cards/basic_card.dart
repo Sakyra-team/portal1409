@@ -33,7 +33,7 @@ class BasicCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: theme.cardColor,
               borderRadius: .circular(15),
-              border: .all(color: const .fromARGB(255, 51, 51, 53)),
+              border: .all(color: theme.hintColor),
             ),
             child: Row(
               mainAxisAlignment: .spaceBetween,

@@ -18,7 +18,7 @@ class _ListExitScreenState extends State<ListExitScreen> {
   void initState() {
     super.initState();
 
-    context.read<ListExitCubit>().loadListExit();
+    context.read<ListExitCubit>().loadListExit(true);
   }
 
   @override
@@ -32,7 +32,7 @@ class _ListExitScreenState extends State<ListExitScreen> {
               bloc: context.read<ListExitCubit>(),
               builder: (context, state) {
                 return AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 250),
                   child: _getWidget(state),
                 );
               },
@@ -46,13 +46,10 @@ class _ListExitScreenState extends State<ListExitScreen> {
   Widget _getWidget(ListExitState state) {
     if (state is ListExitLoading) {
       return const Center(child: CircularProgressIndicator());
-    } else if (state is ListExitLoaded || state is ListExitEmpty) {
-      return AnimatedSwitcher(
-        duration: const Duration(milliseconds: 200),
-        child: state is ListExitLoaded
-            ? ListExitPage(list: state.list)
-            : ListExitEmptyPage(),
-      );
+    } else if (state is ListExitLoaded) {
+      return ListExitPage(list: state.list, isOnlyMy: state.isOnlyMy,);
+    } else if (state is ListExitEmpty) {
+      return ListExitEmptyPage(isOnlyMy: state.isOnlyMy,);
     }
     return const UnknowError();
   }

@@ -11,6 +11,85 @@
 part of 'router.dart';
 
 /// generated route for
+/// [AccountScreen]
+class AccountRoute extends PageRouteInfo<AccountRouteArgs> {
+  AccountRoute({
+    Key? key,
+    required String heroTag,
+    List<PageRouteInfo>? children,
+  }) : super(
+         AccountRoute.name,
+         args: AccountRouteArgs(key: key, heroTag: heroTag),
+         initialChildren: children,
+       );
+
+  static const String name = 'AccountRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AccountRouteArgs>();
+      return AccountScreen(key: args.key, heroTag: args.heroTag);
+    },
+  );
+}
+
+class AccountRouteArgs {
+  const AccountRouteArgs({this.key, required this.heroTag});
+
+  final Key? key;
+
+  final String heroTag;
+
+  @override
+  String toString() {
+    return 'AccountRouteArgs{key: $key, heroTag: $heroTag}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AccountRouteArgs) return false;
+    return key == other.key && heroTag == other.heroTag;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ heroTag.hashCode;
+}
+
+/// generated route for
+/// [CreateExitScreen]
+class CreateExitRoute extends PageRouteInfo<void> {
+  const CreateExitRoute({List<PageRouteInfo>? children})
+    : super(CreateExitRoute.name, initialChildren: children);
+
+  static const String name = 'CreateExitRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CreateExitScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [DevicesScreen]
+class DevicesRoute extends PageRouteInfo<void> {
+  const DevicesRoute({List<PageRouteInfo>? children})
+    : super(DevicesRoute.name, initialChildren: children);
+
+  static const String name = 'DevicesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DevicesScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [ListExitScreen]
 class ListExitRoute extends PageRouteInfo<void> {
   const ListExitRoute({List<PageRouteInfo>? children})
@@ -91,6 +170,22 @@ class SearchRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SecurityScreen]
+class SecurityRoute extends PageRouteInfo<void> {
+  const SecurityRoute({List<PageRouteInfo>? children})
+    : super(SecurityRoute.name, initialChildren: children);
+
+  static const String name = 'SecurityRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SecurityScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [ServicesScreen]
 class ServicesRoute extends PageRouteInfo<void> {
   const ServicesRoute({List<PageRouteInfo>? children})
@@ -102,6 +197,22 @@ class ServicesRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ServicesScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [SettingsScreen]
+class SettingsRoute extends PageRouteInfo<void> {
+  const SettingsRoute({List<PageRouteInfo>? children})
+    : super(SettingsRoute.name, initialChildren: children);
+
+  static const String name = 'SettingsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SettingsScreen();
     },
   );
 }

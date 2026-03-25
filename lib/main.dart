@@ -30,11 +30,11 @@ void main() async {
 
   // GetIt.I<ServiceRepository>().removeAllFavorite();
 
-  runApp(const MyApp());
+  runApp(const MobileApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MobileApp extends StatelessWidget {
+  const MobileApp({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -9,9 +9,11 @@ Future<void> showCustomAlert(
   String buttonText, {
   String? subtitileText,
   String? textButtonText,
+  bool? isCenter,
   VoidCallback? buttonFunc,
   VoidCallback? textButtonFunc,
   VoidCallback? spaceFunc,
+
 }) {
   final theme = Theme.of(context);
   return showDialog(
@@ -39,10 +41,11 @@ Future<void> showCustomAlert(
                   padding: const .all(20),
                   child: Column(
                     mainAxisSize: .min,
-                    crossAxisAlignment: .start,
+                    crossAxisAlignment: isCenter == true ? .center : .start,
                     children: [
                       Text(
                         titleText,
+                        textAlign: isCenter == true ? .center : .start,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: Colors.white,
                           fontSize: 18,
@@ -56,6 +59,7 @@ Future<void> showCustomAlert(
                           : Text(
                               subtitileText,
                               softWrap: true,
+                              textAlign: isCenter == true ? .center : .start,
                               style: theme.textTheme.bodySmall?.copyWith(
                                 fontSize: 14,
                                 color: Colors.white,
@@ -78,6 +82,7 @@ Future<void> showCustomAlert(
                           child: Center(
                             child: Text(
                               buttonText,
+                              textAlign: .center,
                               style: theme.textTheme.bodyLarge?.copyWith(
                                 color: Colors.white,
                                 fontSize: 14,

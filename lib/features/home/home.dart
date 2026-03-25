@@ -3,3 +3,4 @@ export './main/main_.dart';
 export './services/services.dart';
 export './notifications/notifications.dart';
 export './search/search.dart';
+export './account/account.dart';

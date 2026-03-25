@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/home/main/widgets/widgets.dart';
+import 'package:portal1409/router/router.dart';
 
 @RoutePage()
 class MainScreen extends StatelessWidget {
@@ -28,11 +29,14 @@ class MainScreen extends StatelessWidget {
                   children: [
                     Text(" Главная", style: theme.textTheme.titleLarge),
                     IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        "assets/images/account_icon.png",
-                        width: 64,
-                        height: 64,
+                      onPressed: () => context.router.push(AccountRoute(heroTag: HeroTags.fromMainToAccount)),
+                      icon: Hero(
+                        tag: HeroTags.fromMainToAccount,
+                        child: Image.asset(
+                          "assets/images/account_icon.png",
+                          width: 64,
+                          height: 64,
+                        ),
                       ),
                     ),
                   ],
@@ -49,7 +53,7 @@ class MainScreen extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 GridView.count(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
                   crossAxisSpacing: 7,
                   mainAxisSpacing: 8,
