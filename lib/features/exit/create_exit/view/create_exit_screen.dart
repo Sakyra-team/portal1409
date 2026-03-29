@@ -109,10 +109,6 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
                   placeholder: "--",
                 ),
 
-                const SizedBox(height: 26),
-
-                Text("  Время выхода (после)", style: theme.textTheme.titleMedium),
-
                 const SizedBox(height: 12),
 
                 CustomDropButton(
@@ -126,7 +122,7 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
                     [Icons.alarm_outlined, "14:10"],
                     [Icons.alarm_outlined, "15:05"],
                   ],
-                  placeholder: "--",
+                  placeholder: "Время выхода (после)",
                 ),
               ],
             ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portal1409/core/core.dart';
 
-class SmallCustomDropButton extends StatefulWidget {
-  const SmallCustomDropButton({
+class CustomDropButton extends StatefulWidget {
+  const CustomDropButton({
     super.key,
     required this.controller,
     required this.placeholder,
@@ -14,12 +14,13 @@ class SmallCustomDropButton extends StatefulWidget {
   final List<List> list;
 
   @override
-  State<SmallCustomDropButton> createState() => _SmallCustomDropButtonState();
+  State<CustomDropButton> createState() => _CustomDropButtonState();
 }
 
-class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
+class _CustomDropButtonState extends State<CustomDropButton> {
   final GlobalKey _key = GlobalKey();
   final LayerLink _link = LayerLink();
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,8 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
         key: _key,
         onTap: () async => await _showOverlay(context, widget.list),
         child: Container(
-          width: MediaQuery.sizeOf(context).width / 2 - 16,
+          padding: const .only(right: 12, left: 24),
+          width: double.infinity,
           height: 80,
           decoration: BoxDecoration(
             color: theme.cardColor,
@@ -38,7 +40,7 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
             borderRadius: .all(.circular(21)),
           ),
           child: Row(
-            mainAxisAlignment: .spaceAround,
+            mainAxisAlignment: .spaceBetween,
             children: [
               Text(widget.placeholder, style: theme.textTheme.titleSmall),
               RotatedBox(
@@ -60,7 +62,7 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
   }
 
   Future<int?> _showOverlay(BuildContext context, List<List> list) async {
-    final int? result = await showOverlay(context, list, _key, .small, _link);
+    final int? result = await showOverlay(context, list, _key, .big, _link);
     return result;
   }
 }

@@ -14,15 +14,14 @@ import 'package:dio/dio.dart';
 import 'package:portal1409/api/api.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:talker/talker.dart';
+import 'package:talker/talker.dart';  
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 
 part 'config.dart';
 
-void mai
-n() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await loadConfig();
@@ -45,7 +44,7 @@ class MobileApp extends StatelessWidget {
         BlocProvider(create: (context) => LoginBloc(apiClient: apiClient)),
         BlocProvider(create: (context) => SmsBloc(apiClient: apiClient)),
         BlocProvider(create: (context) => LiftCubit(apiClient: apiClient)),
-        BlocProvider(create: (context) =>я ServiceCubit()),
+        BlocProvider(create: (context) => ServiceCubit()),
         BlocProvider(create: (context) => ListExitCubit(apiClient: apiClient))
       ],
       child: MaterialApp.router(
