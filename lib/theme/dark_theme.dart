@@ -9,6 +9,7 @@ final ThemeData darkTheme = ThemeData(
   colorScheme: ColorScheme(
     brightness: Brightness.dark,
     primary: const .fromARGB(255, 71, 73, 226),
+    
     onPrimary: const .fromARGB(255, 71, 73, 226),
     secondary: const .fromARGB(255, 230, 53, 48),
     onSecondary: const .fromARGB(255, 230, 53, 48),
@@ -20,9 +21,11 @@ final ThemeData darkTheme = ThemeData(
   ),
 
   scaffoldBackgroundColor: Colors.black,
-
+  // splashColor: const .fromARGB(255, 71, 73, 226),
   cardColor: const .fromARGB(200, 24, 23, 27),
-  hintColor: const .fromARGB(255, 51, 51, 53),
+  dividerColor: const .fromARGB(255, 51, 51, 53),
+  // hintColor: const .fromARGB(255, 51, 51, 53),
+  
   // cardColor: const .fromARGB(230, 0, 0, 0),
 
   iconTheme: IconThemeData(color: Colors.white, size: 32),

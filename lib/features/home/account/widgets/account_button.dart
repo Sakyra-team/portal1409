@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portal1409/core/core.dart';
 
 class AccountButton extends StatelessWidget {
   const AccountButton({super.key, required this.text});
@@ -11,11 +10,6 @@ class AccountButton extends StatelessWidget {
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
-        showOverlay(context, [
-          "Семейные обстоятельства",
-          "Семейные обстоятельства",
-          "Семейные обстоятельства",
-        ]);
       },
       child: Container(
         width: double.infinity,

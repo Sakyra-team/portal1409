@@ -1,0 +1,4 @@
+enum OverlayEnum  {
+  big,
+  small,
+}

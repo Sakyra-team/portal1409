@@ -42,27 +42,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   } else if (state is LoginLoaded) {
                     context.router.push(
                       SmsRoute(phoneNumber: "7${controller.text}"),
-                    );}
+                    );
+                  }
                 },
-                child: BlocBuilder(
+                child: BlocBuilder<LoginBloc, LoginState>(
                   bloc: context.read<LoginBloc>(),
-                  builder: (context, state) {
-                    if (state is LoginInitial) {
-                      return LoginPage(controller: controller);
-                    } else if (state is LoginLoading) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state is LoginExceptionTeacherNotFound) {
-                      return LoginPageErrorTeacher(controller: controller);
-                    } else if (state is LoginLoaded) {
-                      return Center(
-                        child: Text(
-                          "Переадресация",
-                          style: theme.textTheme.titleMedium,
-                        ),
-                      );
-                    }
-                    return UnknowError();
-                  },
+                  builder: (context, state) => AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 200),
+                    child: _getpage(state),
+                  ),
                 ),
               ),
             ),
@@ -81,5 +69,23 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ]),
     );
+  }
+
+  Widget _getpage(LoginState state) {
+    if (state is LoginInitial) {
+      return LoginPage(controller: controller);
+    } else if (state is LoginLoading) {
+      return const Center(child: CircularProgressIndicator());
+    } else if (state is LoginExceptionTeacherNotFound) {
+      return LoginPageErrorTeacher(controller: controller);
+    } else if (state is LoginLoaded) {
+      return Center(
+        child: Text(
+          "Переадресация",
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+      );
+    }
+    return UnknowError();
   }
 }

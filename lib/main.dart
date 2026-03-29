@@ -21,14 +21,15 @@ import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 
 part 'config.dart';
 
-void main() async {
+void mai
+n() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await loadConfig();
 
   // loginManager.logout();
 
-  // GetIt.I<ServiceRepository>().removeAllFavorite();
+  // GetIt.I<ServiceRepository>().removeAllFavorite();h
 
   runApp(const MobileApp());
 }
@@ -40,11 +41,11 @@ class MobileApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppRouter router = AppRouter();
     return MultiBlocProvider(
-      providers: [
+      providers:  [
         BlocProvider(create: (context) => LoginBloc(apiClient: apiClient)),
         BlocProvider(create: (context) => SmsBloc(apiClient: apiClient)),
         BlocProvider(create: (context) => LiftCubit(apiClient: apiClient)),
-        BlocProvider(create: (context) => ServiceCubit()),
+        BlocProvider(create: (context) =>я ServiceCubit()),
         BlocProvider(create: (context) => ListExitCubit(apiClient: apiClient))
       ],
       child: MaterialApp.router(

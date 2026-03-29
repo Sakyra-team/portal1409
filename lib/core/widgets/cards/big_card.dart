@@ -19,7 +19,7 @@ class BigCard extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: theme.cardColor,
-              border: .all(color: theme.hintColor),
+              border: .all(color: theme.dividerColor),
               borderRadius: .circular(15),
             ),
             child: Center(

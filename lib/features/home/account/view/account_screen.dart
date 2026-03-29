@@ -86,6 +86,13 @@ class AccountScreen extends StatelessWidget {
 
                           const SizedBox(height: 12),
 
+                          Center(
+                            child: Text(
+                              "Мой класс",
+                              style: theme.textTheme.titleSmall,
+                            ),
+                          ),
+
                           Row(
                             mainAxisAlignment: .spaceBetween,
                             children: [
@@ -109,9 +116,7 @@ class AccountScreen extends StatelessWidget {
 
                           const SizedBox(height: 12),
 
-                          Row(
-                            children: [],
-                          ),
+                          Row(children: []),
                           const SizedBox(height: 24),
 
                           AccountButton(text: "Сохранить класс"),

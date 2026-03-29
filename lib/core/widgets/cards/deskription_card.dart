@@ -34,7 +34,7 @@ class DeskriptionCard extends StatelessWidget {
             height: 73,
             decoration: BoxDecoration(
               color: theme.cardColor,
-              border: .all(color: theme.hintColor),
+              border: .all(color: theme.dividerColor),
               borderRadius: .circular(15),
             ),
 

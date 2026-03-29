@@ -15,61 +15,61 @@ List<String?> liquidProgressDomain() {
     ]);
   }
   // Идут уроки
-  else if (now.hour >= 8 &&
+  else if (now.hour >= 8 ||
       now.hour <= 9 &&
-      now.minute >= 30 &&
+      now.minute >= 30 ||
       now.minute <= 15) {
     return ([
       "${now.minute > 30 ? "${15 + (60 - now.minute)}" : "${15 - now.minute}"} мин.",
       "До конца урока, далее перемена(10 мин.)",
     ]);
-  } else if (now.hour >= 9 &&
+  } else if (now.hour >= 9 ||
       now.hour <= 10 &&
-      now.minute >= 25 &&
+      now.minute >= 25 ||
       now.minute <= 10) {
     return ([
       "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
       "До конца урока, далее перемена(15 мин.)",
     ]);
-  } else if (now.hour >= 10 &&
+  } else if (now.hour >= 10 ||
       now.hour <= 11 &&
-      now.minute >= 25 &&
+      now.minute >= 25 ||
       now.minute <= 10) {
     return ([
       "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
 
       "До конца урока, далее перемена(15 мин.)",
     ]);
-  } else if (now.hour >= 11 &&
+  } else if (now.hour >= 11 ||
       now.hour <= 12 &&
-      now.minute >= 25 &&
+      now.minute >= 25 ||
       now.minute <= 10) {
     return ([
       "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
 
       "До конца урока, далее перемена(15 мин.)",
     ]);
-  } else if (now.hour >= 12 &&
+  } else if (now.hour >= 12 ||
       now.hour <= 13 &&
-      now.minute >= 30 &&
+      now.minute >= 30 ||
       now.minute <= 15) {
     return ([
       "${now.minute > 30 ? "${15 + (60 - now.minute)}" : "${15 - now.minute}"} мин.",
 
       "До конца урока, далее большая перемена(20 мин.)",
     ]);
-  } else if (now.hour >= 13 &&
+  } else if (now.hour >= 13 ||
       now.hour <= 14 &&
-      now.minute >= 25 &&
+      now.minute >= 25 ||
       now.minute <= 10) {
     return ([
       "${now.minute > 25 ? "${10 + (60 - now.minute)}" : "${10 - now.minute}"} мин.",
 
       "До конца урока, далее перемена(10 мин.)",
     ]);
-  } else if (now.hour >= 14 &&
+  } else if (now.hour >= 14 ||
       now.hour <= 15 &&
-      now.minute >= 20 &&
+      now.minute >= 20 ||
       now.minute <= 05) {
     return ([
       "${now.minute > 20 ? "${5 + (60 - now.minute)} " : "${5 - now.minute}"} мин.",

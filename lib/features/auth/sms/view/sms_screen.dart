@@ -26,7 +26,6 @@ class _SmsScreenState extends State<SmsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
       body: header([
         SafeArea(
@@ -46,21 +45,10 @@ class _SmsScreenState extends State<SmsScreen> {
                 child: BlocBuilder<SmsBloc, SmsState>(
                   bloc: context.read<SmsBloc>(),
                   builder: (context, state) {
-                    if (state is SmsInitial) {
-                      return SmsPage(controller: controller, phone: widget.phoneNumber);
-                    } else if (state is SmsLoading) {
-                      return const Center(child: CircularProgressIndicator());
-                    } else if (state is SmsLoaded) {
-                      return Center(
-                        child: Text(
-                          "Переадресация",
-                          style: theme.textTheme.titleMedium,
-                        ),
-                      );
-                    } else if (state is SmsExceptionWrong) {
-                      return SmsPage(controller: controller, phone: widget.phoneNumber, isError: true);
-                    }
-                    return UnknowError();
+                    return AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 200),
+                      child: _getPage(state),
+                    );
                   },
                 ),
               ),
@@ -69,5 +57,24 @@ class _SmsScreenState extends State<SmsScreen> {
         ),
       ]),
     );
+  }
+
+  Widget _getPage(SmsState state) {
+    if (state is SmsInitial) {
+      return SmsPage(controller: controller, phone: widget.phoneNumber);
+    } else if (state is SmsLoading) {
+      return const Center(child: CircularProgressIndicator());
+    } else if (state is SmsLoaded) {
+      return Center(
+        child: Text("Переадресация", style: Theme.of(context).textTheme.titleMedium),
+      );
+    } else if (state is SmsExceptionWrong) {
+      return SmsPage(
+        controller: controller,
+        phone: widget.phoneNumber,
+        isError: true,
+      );
+    }
+    return UnknowError();
   }
 }
