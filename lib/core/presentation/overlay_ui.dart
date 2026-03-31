@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:portal1409/core/widgets/alert/overlay_alert.dart';
 
@@ -9,11 +8,13 @@ class OverlayUI extends StatefulWidget {
     required this.list,
     required this.completer,
     required this.overlayEntry,
+    this.onCloseRequest,
   });
 
   final List<List> list;
-  final Completer<int> completer;
+  final Completer<int?> completer;
   final OverlayEntry overlayEntry;
+  final void Function(Future<void> Function())? onCloseRequest;
 
   @override
   State<OverlayUI> createState() => _OverlayUIState();
@@ -33,7 +34,7 @@ class _OverlayUIState extends State<OverlayUI>
 
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 175),
+      duration: const Duration(milliseconds: 200),
     );
     opacity = Tween<double>(begin: 0.1, end: 1).animate(animationController);
     scale = Tween<double>(begin: 0.92, end: 1).animate(
@@ -41,17 +42,30 @@ class _OverlayUIState extends State<OverlayUI>
     );
 
     animationController.forward();
+
+    widget.onCloseRequest?.call(closeWithoutParam);
   }
 
   Future<void> close(int index) async {
-    await animationController.reverse();
     if (isProcessing) return;
     isProcessing = true;
-    Future.delayed(Duration(milliseconds: 175), () {
-      widget.completer.complete(index);
-      widget.overlayEntry.remove();
-      currentOverlay = null;
-    });
+
+    await animationController.reverse();
+
+    currentOverlay = null;
+    widget.completer.complete(index);
+    widget.overlayEntry.remove();
+  }
+
+  Future<void> closeWithoutParam() async {
+    if (isProcessing) return;
+    isProcessing = true;
+
+    await animationController.reverse();
+
+    currentOverlay = null;
+    widget.completer.complete(-1);
+    widget.overlayEntry.remove();
   }
 
   @override

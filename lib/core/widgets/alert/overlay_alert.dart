@@ -18,14 +18,15 @@ Future<int?> showOverlay(
   LayerLink link,
 ) async {
   final overlay = Overlay.of(context);
+  final Completer<int> completer = Completer<int>();
   late OverlayEntry overlayEntry;
+  final GlobalKey overlayUIKey = GlobalKey();
+
+  Future<void> Function()? closeOverlayAnimated;
 
   if (currentOverlay != null) {
-    currentOverlay!.remove();
-    currentOverlay = null;
+    closeAllOverlays();
   }
-
-  final Completer<int> completer = Completer<int>();
 
   overlayEntry = OverlayEntry(
     builder: (context) {
@@ -40,6 +41,14 @@ Future<int?> showOverlay(
       return Positioned.fill(
         child: Stack(
           children: [
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: () async {
+                  await closeOverlayAnimated?.call();
+                  currentOverlay = null;
+                },
+              ),
+            ),
             CompositedTransformFollower(
               link: link,
               targetAnchor: isBottom ? .topCenter : .bottomCenter,
@@ -50,16 +59,14 @@ Future<int?> showOverlay(
                     ? (MediaQuery.sizeOf(context).width / 2 - 16)
                     : (MediaQuery.sizeOf(context).width - 24),
                 child: OverlayUI(
+                  key: overlayUIKey,
                   list: list,
                   completer: completer,
                   overlayEntry: overlayEntry,
+                  onCloseRequest: (closeFN) => closeOverlayAnimated = closeFN,
                 ),
               ),
             ),
-            Positioned.fill(child: GestureDetector(onTap: () {
-              overlayEntry.remove();
-              currentOverlay = null;
-            },))
           ],
         ),
       );

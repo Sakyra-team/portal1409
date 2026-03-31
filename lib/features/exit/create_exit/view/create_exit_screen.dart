@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:portal1409/core/widgets/widgets.dart';
+import 'package:portal1409/features/exit/create_exit/data/create_exit_data.dart';
 
 @RoutePage()
 class CreateExitScreen extends StatefulWidget {
@@ -12,11 +13,33 @@ class CreateExitScreen extends StatefulWidget {
 
 class _CreateExitScreenState extends State<CreateExitScreen> {
   final TextEditingController controllerFIO = TextEditingController();
+  late TextEditingController controllerSymbol = TextEditingController();
+  // ignore: avoid_init_to_null
+  late int? vcNumber = null;
+  // ignore: avoid_init_to_null
+  late int? vcCause = null;
+  // ignore: avoid_init_to_null
+  late int? vcTime = null;
 
-  @override
-  void dispose() {
-    super.dispose();
-    controllerFIO.dispose();
+  void _vcNumber(int? number) {
+    if (number == null) return;
+    setState(() {
+      vcNumber = number;
+    });
+  }
+
+  void _vcCause(int? cause) {
+    if (cause == null) return;
+    setState(() {
+      vcCause = cause;
+    });
+  }
+
+  void _vcTime(int? time) {
+    if (time == null) return;
+    setState(() {
+      vcTime = time;
+    });
   }
 
   @override
@@ -52,43 +75,16 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
                 Row(
                   children: [
                     SmallCustomDropButton(
-                      controller: controllerFIO,
+                      text: (vcNumber != null && vcNumber != -1) ? classList[vcNumber!][1] : null,
+                      valueChanged: _vcNumber,
                       placeholder: "Цифра",
-                      list: const <List>[
-                        [Icons.class_outlined, "7"],
-                        [Icons.class_outlined, "8"],
-                        [Icons.class_outlined, "9"],
-                        [Icons.class_outlined, "10"],
-                        [Icons.class_outlined, "11"],
-                      ],
+                      list: classList,
                     ),
                     const SizedBox(width: 8),
-                    SmallCustomDropButton(
-                      controller: controllerFIO,
+                    SmallTextField(
+                      controller: controllerSymbol,
                       placeholder: "Буква",
-                      list: const <List>[
-                        [Icons.class_outlined, "А"],
-                        [Icons.class_outlined, "Б"],
-                        [Icons.class_outlined, "В"],
-                        [Icons.class_outlined, "Г"],
-                        [Icons.class_outlined, "Д"],
-                        [Icons.class_outlined, "Е"],
-                        [Icons.class_outlined, "Ж"],
-                        [Icons.class_outlined, "З"],
-                        [Icons.class_outlined, "И"],
-                        [Icons.class_outlined, "К"],
-                        [Icons.class_outlined, "Л"],
-                        [Icons.class_outlined, "М"],
-                        [Icons.class_outlined, "Н"],
-                        [Icons.class_outlined, "О"],
-                        [Icons.class_outlined, "П"],
-                        [Icons.class_outlined, "Р"],
-                        [Icons.class_outlined, "С"],
-                        [Icons.class_outlined, "Т"],
-                        [Icons.class_outlined, "У"],
-                        [Icons.class_outlined, "Э"],
-                        [Icons.class_outlined, "Я"],
-                      ],
+                      onSubmitted: () {},
                     ),
                   ],
                 ),
@@ -100,28 +96,18 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
                 const SizedBox(height: 12),
 
                 CustomDropButton(
-                  controller: TextEditingController(),
-                  list: [
-                    [Icons.family_restroom_outlined, "Семейные обстоятельства"],
-                    [Icons.person_2_outlined, "Приём у врача"],
-                    [Icons.event_outlined, "Мероприятия"],
-                  ],
+                  text: (vcCause != null && vcCause != -1) ? causeList[vcCause!][1] : null,
+                  valueChanged: _vcCause,
+                  list: causeList,
                   placeholder: "--",
                 ),
 
                 const SizedBox(height: 12),
 
                 CustomDropButton(
-                  controller: TextEditingController(),
-                  list: [
-                    [Icons.alarm_outlined, "9:15"],
-                    [Icons.alarm_outlined, "10:10"],
-                    [Icons.alarm_outlined, "11:10"],
-                    [Icons.alarm_outlined, "12:10"],
-                    [Icons.alarm_outlined, "13:15"],
-                    [Icons.alarm_outlined, "14:10"],
-                    [Icons.alarm_outlined, "15:05"],
-                  ],
+                  text: (vcTime != null && vcTime != -1) ? timeList[vcTime!][1] : null,
+                  valueChanged: _vcTime,
+                  list: timeList,
                   placeholder: "Время выхода (после)",
                 ),
               ],

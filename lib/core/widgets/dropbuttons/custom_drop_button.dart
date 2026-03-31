@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portal1409/core/core.dart';
 
-class SmallCustomDropButton extends StatefulWidget {
-  const SmallCustomDropButton({
+class CustomDropButton extends StatefulWidget {
+  const CustomDropButton({
     super.key,
     required this.valueChanged,
     required this.placeholder,
@@ -16,10 +16,10 @@ class SmallCustomDropButton extends StatefulWidget {
   final String? text;
 
   @override
-  State<SmallCustomDropButton> createState() => _SmallCustomDropButtonState();
+  State<CustomDropButton> createState() => _CustomDropButtonState();
 }
 
-class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
+class _CustomDropButtonState extends State<CustomDropButton> {
   final GlobalKey _key = GlobalKey();
   final LayerLink _link = LayerLink();
 
@@ -34,6 +34,7 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
         key: _key,
         onTap: () async {
           FocusScope.of(context).unfocus();
+
           setState(() => isOpenOverlay = true);
 
           final int? result = await _showOverlay(context, widget.list);
@@ -44,9 +45,9 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
           widget.valueChanged(result);
         },
         child: Container(
-          width: MediaQuery.sizeOf(context).width / 2 - 16,
-          height: 80,
           padding: const .only(right: 12, left: 24),
+          width: double.infinity,
+          height: 80,
           decoration: BoxDecoration(
             color: theme.cardColor,
             border: .all(color: theme.dividerColor),
@@ -55,10 +56,7 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
           child: Row(
             mainAxisAlignment: .spaceBetween,
             children: [
-              Text(
-                widget.text ?? widget.placeholder,
-                style: theme.textTheme.titleSmall,
-              ),
+              Text(widget.text ?? widget.placeholder, style: theme.textTheme.titleSmall),
               AnimatedSwitcher(
                 duration: Duration(milliseconds: 300),
                 transitionBuilder: (child, animation) {
@@ -93,7 +91,7 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
   }
 
   Future<int?> _showOverlay(BuildContext context, List<List> list) async {
-    final int? result = await showOverlay(context, list, _key, .small, _link);
+    final int? result = await showOverlay(context, list, _key, .big, _link);
     return result;
   }
 }
