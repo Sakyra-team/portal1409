@@ -7,17 +7,19 @@ class BasicCard extends StatelessWidget {
     required this.text,
     required this.func,
     required this.actionIcon,
-    required this.actionIconFunc,
+    this.actionIconFunc,
     this.actionIconColor,
+    this.actionIconSize,
   });
 
   final IconData leadingIcon;
   final String text;
   final VoidCallback func;
   final IconData actionIcon;
-  final VoidCallback actionIconFunc;
+  final VoidCallback? actionIconFunc;
 
   final Color? actionIconColor;
+  final double? actionIconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,11 @@ class BasicCard extends StatelessWidget {
                       child: Icon(leadingIcon, size: 32),
                     ),
 
-                    Text(text, style: theme.textTheme.titleSmall, softWrap: true,),
+                    Text(
+                      text,
+                      style: theme.textTheme.titleSmall,
+                      softWrap: true,
+                    ),
                   ],
                 ),
 
@@ -54,7 +60,11 @@ class BasicCard extends StatelessWidget {
                   padding: const .only(right: 12),
                   child: IconButton(
                     onPressed: actionIconFunc,
-                    icon: Icon(actionIcon, color: actionIconColor ?? theme.primaryColor),
+                    icon: Icon(
+                      actionIcon,
+                      color: actionIconColor ?? theme.primaryColor,
+                      size: actionIconSize ?? 32,
+                    ),
                   ),
                 ),
               ],

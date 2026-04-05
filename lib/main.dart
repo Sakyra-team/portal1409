@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:portal1409/features/auth/login/bloc/login_bloc.dart';
 import 'package:portal1409/features/auth/sms/bloc/sms_bloc.dart';
+import 'package:portal1409/features/exit/create_exit/cubit/create_exit_cubit.dart';
 import 'package:portal1409/features/exit/list_exit/cubit/list_exit_cubit.dart';
 import 'package:portal1409/features/home/main/cubit/lift_cubit.dart';
 import 'package:portal1409/features/home/services/cubit/service_cubit.dart';
-import 'package:portal1409/repository/auth/login_repository.dart';
-import 'package:portal1409/repository/service/service_repository.dart';
+import 'package:portal1409/repository/repository.dart';
 import 'package:portal1409/router/router.dart';
 import 'package:portal1409/theme/theme.dart';
 import 'package:dio/dio.dart';
@@ -45,7 +45,8 @@ class MobileApp extends StatelessWidget {
         BlocProvider(create: (context) => SmsBloc(apiClient: apiClient)),
         BlocProvider(create: (context) => LiftCubit(apiClient: apiClient)),
         BlocProvider(create: (context) => ServiceCubit()),
-        BlocProvider(create: (context) => ListExitCubit(apiClient: apiClient))
+        BlocProvider(create: (context) => ListExitCubit(apiClient: apiClient)),
+        BlocProvider(create: (context) => CreateExitCubit(apiClient: apiClient))
       ],
       child: MaterialApp.router(
         title: 'Портал 1409',

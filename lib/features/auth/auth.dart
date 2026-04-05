@@ -1,2 +1,2 @@
-export './login/view/login_screen.dart';
-export './sms/view/sms_screen.dart';
+export 'login/presentation/view/login_screen.dart';
+export 'sms/presentation/view/sms_screen.dart';

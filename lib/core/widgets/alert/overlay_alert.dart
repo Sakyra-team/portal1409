@@ -10,7 +10,7 @@ void closeAllOverlays() {
   currentOverlay = null;
 }
 
-Future<int?> showOverlay(
+Future<int> showOverlay(
   BuildContext context,
   List<List> list,
   GlobalKey parentKey,

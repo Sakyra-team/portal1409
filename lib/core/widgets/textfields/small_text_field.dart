@@ -5,12 +5,12 @@ class SmallTextField extends StatelessWidget {
     super.key,
     required this.controller,
     required this.placeholder,
-    required this.onSubmitted,
+    this.onSubmitted,
   });
 
   final TextEditingController controller;
   final String placeholder;
-  final VoidCallback onSubmitted;
+  final VoidCallback? onSubmitted;
 
   @override
   Widget build(BuildContext context) {

@@ -1,1 +1,1 @@
-export './view/notifications_screen.dart';
+export 'presentation/view/notifications_screen.dart';

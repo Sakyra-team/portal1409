@@ -1,2 +1,2 @@
-export './list_exit/view/view.dart';
-export './create_exit/view/view.dart';
+export 'list_exit/presentation/view/view.dart';
+export 'create_exit/presentation/view/view.dart';

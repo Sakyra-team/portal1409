@@ -1,1 +1,1 @@
-export './view/search_screen.dart';
+export 'presentation/view/search_screen.dart';
