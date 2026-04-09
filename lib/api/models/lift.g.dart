@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../lift.dart';
+part of 'lift.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

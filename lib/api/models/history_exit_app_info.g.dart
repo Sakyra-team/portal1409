@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../history_exit_app_info.dart';
+part of 'history_exit_app_info.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

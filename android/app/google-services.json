@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:306236633607:android:4847596d3c8fe2242f30a2",
+        "mobilesdk_app_id": "1:306236633607:android:fad2652d432a79652f30a2",
         "android_client_info": {
-          "package_name": "ru.my1409.app"
+          "package_name": "ru.my1409.app.portal1409"
         }
       },
       "oauth_client": [],

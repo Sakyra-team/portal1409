@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'generic/create_exit_application.g.dart';
+part 'create_exit_application.g.dart';
 
 @JsonSerializable()
 class CreateExitApplication {

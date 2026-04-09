@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'generic/phone_send.g.dart';
+part 'phone_send.g.dart';
 
 @JsonSerializable()
 class SendPhone {

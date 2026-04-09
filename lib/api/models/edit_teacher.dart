@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'generic/edit_teacher.g.dart';
+part 'edit_teacher.g.dart';
 
 @JsonSerializable()
 class EditTeacher {

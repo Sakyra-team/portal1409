@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../edit_teacher.dart';
+part of 'edit_teacher.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

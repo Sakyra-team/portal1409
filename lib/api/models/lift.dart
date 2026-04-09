@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'generic/lift.g.dart';
+part 'lift.g.dart';
 
 @JsonSerializable()
 class Lift {

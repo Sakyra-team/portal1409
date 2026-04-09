@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../create_exit_application.dart';
+part of 'create_exit_application.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

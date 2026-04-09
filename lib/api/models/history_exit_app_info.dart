@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'generic/history_exit_app_info.g.dart';
+part 'history_exit_app_info.g.dart';
 
 @JsonSerializable()
 class HistoryExitAppInfo {
