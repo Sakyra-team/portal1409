@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "306236633607",
+    "project_id": "portal1409",
+    "storage_bucket": "portal1409.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306236633607:android:4847596d3c8fe2242f30a2",
+        "android_client_info": {
+          "package_name": "ru.my1409.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChtULTZipdNuEMx8e3pTLLCvQ_kkeXIhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
