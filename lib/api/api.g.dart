@@ -12,7 +12,7 @@ part of 'api.dart';
 
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'http://10.225.167.3:1409/api';
+    baseUrl ??= 'https://my1409.ru/api';
   }
 
   final Dio _dio;
@@ -312,7 +312,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/exit_application/${uuid}/close/',
+            '/teacher/exit_application/${uuid}/close/',
             queryParameters: queryParameters,
             data: _data,
           )

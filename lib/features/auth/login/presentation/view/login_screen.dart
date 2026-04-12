@@ -20,8 +20,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -72,10 +72,11 @@ class _LoginScreenState extends State<LoginScreen> {
     if (state is LoginInitial) {
       return LoginPage(controller: controller);
     } else if (state is LoginLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator());
     } else if (state is LoginExceptionTeacherNotFound) {
       return LoginPageErrorTeacher(controller: controller);
     } else if (state is LoginLoaded) {
+      debugPrint("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
       return Center(
         child: Text(
           "Переадресация",
@@ -83,6 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
     }
-    return UnknowError();
+    return const UnknowError();
   }
 }

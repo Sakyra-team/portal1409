@@ -8,7 +8,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
 @RoutePage()
-class InfoExitScreen extends StatelessWidget {
+class InfoExitScreen extends StatefulWidget {
   const InfoExitScreen({
     super.key,
     required this.uuid,
@@ -23,6 +23,12 @@ class InfoExitScreen extends StatelessWidget {
   final bool isDeactivate;
 
   @override
+  State<InfoExitScreen> createState() => _InfoExitScreenState();
+}
+
+class _InfoExitScreenState extends State<InfoExitScreen> {
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
@@ -32,10 +38,10 @@ class InfoExitScreen extends StatelessWidget {
             padding: const .only(top: 108, left: 12, right: 12, bottom: 64),
             child: Column(
               children: [
-                Text(name, style: theme.textTheme.titleLarge),
+                Text(widget.name, style: theme.textTheme.titleLarge),
                 const SizedBox(height: 5),
                 Text(
-                  iat,
+                  widget.iat,
                   style: theme.textTheme.labelLarge?.copyWith(
                     color: theme.hintColor,
                   ),
@@ -44,7 +50,7 @@ class InfoExitScreen extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: QrImageView(
-                      data: "https://my1409.ru/application/$uuid",
+                      data: "https://my1409.ru/application/${widget.uuid}",
                       version: QrVersions.auto,
                       eyeStyle: const QrEyeStyle(color: Colors.white),
                       dataModuleStyle: const QrDataModuleStyle(
@@ -59,13 +65,20 @@ class InfoExitScreen extends StatelessWidget {
                   text: "Поделится",
                   onTap: () => SharePlus.instance.share(
                     ShareParams(
-                      uri: .parse("https://my1409.ru/application/$uuid"),
+                      uri: .parse(
+                        "https://my1409.ru/application/${widget.uuid}",
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 10),
 
-                BlocBuilder<InfoExitCubit, InfoExitState>(
+                BlocConsumer<InfoExitCubit, InfoExitState>(
+                  bloc: context.read<InfoExitCubit>(),
+                  listener: (context, state) {
+                    if (state is InfoExitLoaded) {
+                    }
+                  },
                   builder: (context, state) {
                     return AnimatedSwitcher(
                       duration: const Duration(milliseconds: 200),
@@ -82,13 +95,21 @@ class InfoExitScreen extends StatelessWidget {
   }
 
   Widget _getPage(InfoExitState state) {
-    return isDeactivate
-        ? SmallButtonCopy(uuid: uuid, isFull: true)
+    if (state is InfoExitLoading) {
+      return const Center(child: CircularProgressIndicator());
+    } else if (state is InfoExitLoaded) {
+      return SmallButtonCopy(uuid: widget.uuid, isFull: true);
+    } else if (state is InfoExitError) {
+      return Center(child: Text("Ошибка удаления заявки"));
+    }
+
+    return widget.isDeactivate
+        ? SmallButtonCopy(uuid: widget.uuid, isFull: true)
         : Row(
             children: [
-              SmallButtonDelete(),
+              SmallButtonDelete(uuid: widget.uuid),
               const SizedBox(width: 8),
-              SmallButtonCopy(uuid: uuid, isFull: false),
+              SmallButtonCopy(uuid: widget.uuid, isFull: false),
             ],
           );
   }

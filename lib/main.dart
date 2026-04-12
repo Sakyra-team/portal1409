@@ -14,7 +14,8 @@ import 'package:portal1409/theme/theme.dart';
 import 'package:dio/dio.dart';
 import 'package:portal1409/api/api.dart';
 import 'package:portal1409/core/core.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:
+shared_preferences/shared_preferences.dart';
 import 'package:talker/talker.dart';  
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
@@ -27,7 +28,7 @@ void main() async {
 
   await loadConfig();
 
-  // loginManager.logout();
+  loginManager.logout();
 
   // GetIt.I<ServiceRepository>().removeAllFavorite();h
 

@@ -97,7 +97,7 @@ class InfoExitRoute extends PageRouteInfo<InfoExitRouteArgs> {
     required String uuid,
     required String name,
     required String iat,
-    required bool isActivate,
+    required bool isDeactivate,
     List<PageRouteInfo>? children,
   }) : super(
          InfoExitRoute.name,
@@ -106,7 +106,7 @@ class InfoExitRoute extends PageRouteInfo<InfoExitRouteArgs> {
            uuid: uuid,
            name: name,
            iat: iat,
-           isActivate: isActivate,
+           isDeactivate: isDeactivate,
          ),
          initialChildren: children,
        );
@@ -122,7 +122,7 @@ class InfoExitRoute extends PageRouteInfo<InfoExitRouteArgs> {
         uuid: args.uuid,
         name: args.name,
         iat: args.iat,
-        isDeactivate: args.isActivate,
+        isDeactivate: args.isDeactivate,
       );
     },
   );
@@ -134,7 +134,7 @@ class InfoExitRouteArgs {
     required this.uuid,
     required this.name,
     required this.iat,
-    required this.isActivate,
+    required this.isDeactivate,
   });
 
   final Key? key;
@@ -145,11 +145,11 @@ class InfoExitRouteArgs {
 
   final String iat;
 
-  final bool isActivate;
+  final bool isDeactivate;
 
   @override
   String toString() {
-    return 'InfoExitRouteArgs{key: $key, uuid: $uuid, name: $name, iat: $iat, isActivate: $isActivate}';
+    return 'InfoExitRouteArgs{key: $key, uuid: $uuid, name: $name, iat: $iat, isDeactivate: $isDeactivate}';
   }
 
   @override
@@ -160,7 +160,7 @@ class InfoExitRouteArgs {
         uuid == other.uuid &&
         name == other.name &&
         iat == other.iat &&
-        isActivate == other.isActivate;
+        isDeactivate == other.isDeactivate;
   }
 
   @override
@@ -169,7 +169,7 @@ class InfoExitRouteArgs {
       uuid.hashCode ^
       name.hashCode ^
       iat.hashCode ^
-      isActivate.hashCode;
+      isDeactivate.hashCode;
 }
 
 /// generated route for

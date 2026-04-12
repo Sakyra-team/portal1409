@@ -5,11 +5,11 @@ import 'package:dio/dio.dart';
 part 'api.g.dart';
 
 // const domainName = "http://10.0.2.2:1409/api";
-// const String domainName = "https://my1409.ru/api";
+const String domainName = "https://my1409.ru/api";
 // const domainName = "http://192.168.1.75:1409/api";
 // const String domainName = "http://10.225.167.3:1409/api";
 
-@RestApi(baseUrl: "http://10.225.167.1:1409/api")
+@RestApi(baseUrl: domainName)
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 
@@ -137,7 +137,7 @@ abstract class ApiClient {
   }]
   */
 
-  @POST("/exit_application/{uuid}/close/")
+  @POST("/teacher/exit_application/{uuid}/close/")
   Future<ExitClose> closeExitApplication(@Path() String uuid, );
   /*
   output data:
