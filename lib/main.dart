@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:portal1409/features/auth/login/bloc/login_bloc.dart';
 import 'package:portal1409/features/auth/sms/bloc/sms_bloc.dart';
 import 'package:portal1409/features/exit/create_exit/cubit/create_exit_cubit.dart';
+import 'package:portal1409/features/exit/info_exit/cubit/info_exit_cubit.dart';
 import 'package:portal1409/features/exit/list_exit/cubit/list_exit_cubit.dart';
 import 'package:portal1409/features/home/main/cubit/lift_cubit.dart';
 import 'package:portal1409/features/home/services/cubit/service_cubit.dart';
@@ -46,7 +47,8 @@ class MobileApp extends StatelessWidget {
         BlocProvider(create: (context) => LiftCubit(apiClient: apiClient)),
         BlocProvider(create: (context) => ServiceCubit()),
         BlocProvider(create: (context) => ListExitCubit(apiClient: apiClient)),
-        BlocProvider(create: (context) => CreateExitCubit(apiClient: apiClient))
+        BlocProvider(create: (context) => CreateExitCubit(apiClient: apiClient)),
+        BlocProvider(create: (context) => InfoExitCubit(apiClient: apiClient))
       ],
       child: MaterialApp.router(
         title: 'Портал 1409',

@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portal1409/core/core.dart';
+import 'package:portal1409/features/exit/info_exit/cubit/info_exit_cubit.dart';
 import 'package:portal1409/features/exit/info_exit/presentation/widgets/widgets.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
@@ -12,11 +14,13 @@ class InfoExitScreen extends StatelessWidget {
     required this.uuid,
     required this.name,
     required this.iat,
+    required this.isDeactivate,
   });
 
   final String uuid;
   final String name;
   final String iat;
+  final bool isDeactivate;
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +65,13 @@ class InfoExitScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
 
-                Row(
-                  children: [
-                    SmallButtonDelete(),
-                    const SizedBox(width: 8),
-                    SmallButtonCopy(),
-                  ],
+                BlocBuilder<InfoExitCubit, InfoExitState>(
+                  builder: (context, state) {
+                    return AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 200),
+                      child: _getPage(state),
+                    );
+                  },
                 ),
               ],
             ),
@@ -74,5 +79,17 @@ class InfoExitScreen extends StatelessWidget {
         ),
       ]),
     );
+  }
+
+  Widget _getPage(InfoExitState state) {
+    return isDeactivate
+        ? SmallButtonCopy(uuid: uuid, isFull: true)
+        : Row(
+            children: [
+              SmallButtonDelete(),
+              const SizedBox(width: 8),
+              SmallButtonCopy(uuid: uuid, isFull: false),
+            ],
+          );
   }
 }

@@ -200,6 +200,7 @@ class _ListExitPageState extends State<ListExitPage> {
               uuid: element.id,
               name: "${element.name} ${element.group.toUpperCase()}",
               iat: calcListExitDate(element.created_at),
+              isActivate: element.is_deleted,
             ),
           ),
           actionFunc: () => showCustomAlert(

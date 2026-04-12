@@ -9,7 +9,7 @@ part 'api.g.dart';
 // const domainName = "http://192.168.1.75:1409/api";
 // const String domainName = "http://10.225.167.3:1409/api";
 
-@RestApi(baseUrl: "http://10.225.167.3:1409/api")
+@RestApi(baseUrl: "http://10.225.167.1:1409/api")
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 
@@ -135,5 +135,13 @@ abstract class ApiClient {
     "teacher_name": "ser",
     "used_at": null
   }]
+  */
+
+  @POST("/exit_application/{uuid}/close/")
+  Future<ExitClose> closeExitApplication(@Path() String uuid, );
+  /*
+  output data:
+  {'status': 'success'}
+  {'status': 'error', 'message': 'application not found'}
   */
 }

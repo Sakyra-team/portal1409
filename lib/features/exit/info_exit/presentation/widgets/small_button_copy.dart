@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SmallButtonCopy extends StatefulWidget {
-  const SmallButtonCopy({super.key});
+  const SmallButtonCopy({super.key, required this.uuid, required this.isFull});
+
+  final String uuid;
+  final bool isFull;
 
   @override
   State<SmallButtonCopy> createState() => _SmallButtonCopyState();
@@ -12,27 +16,20 @@ class _SmallButtonCopyState extends State<SmallButtonCopy> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Material(
-      child: InkWell(
-        borderRadius: const .all(.circular(18)),
-
-        splashColor: theme.primaryColor,
-        highlightColor: theme.primaryColor.withAlpha(67),
-        splashFactory: InkRipple.splashFactory,
-        child: Container(
-          width: MediaQuery.sizeOf(context).width / 2 - 16,
-          height: 68,
-
-          decoration: BoxDecoration(
-            borderRadius: const .all(.circular(18)),
-            color: theme.splashColor,
-          ),
-
-          child: Center(
-            child: Text(
-              "Ссылка",
-              style: theme.textTheme.titleMedium?.copyWith(color: Colors.white),
-            ),
+    return GestureDetector(
+      onTap: () async => await Clipboard.setData(ClipboardData(text: "https://my1409.ru/application/${widget.uuid}")),
+      child: Container(
+        width: widget.isFull ? double.infinity : MediaQuery.sizeOf(context).width / 2 - 16,
+        height: 68,
+        decoration: BoxDecoration(
+          borderRadius: const .all(.circular(18)),
+          color: theme.splashColor,
+        ),
+      
+        child: Center(
+          child: Text(
+            "Ссылка",
+            style: theme.textTheme.titleMedium?.copyWith(color: Colors.white),
           ),
         ),
       ),

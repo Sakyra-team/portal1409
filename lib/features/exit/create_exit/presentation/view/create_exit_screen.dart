@@ -44,6 +44,7 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
                       uuid: state.uuid,
                       name: state.name,
                       iat: state.date,
+                      isActivate: true,
                     ),
                   );
                 }

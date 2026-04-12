@@ -97,10 +97,17 @@ class InfoExitRoute extends PageRouteInfo<InfoExitRouteArgs> {
     required String uuid,
     required String name,
     required String iat,
+    required bool isActivate,
     List<PageRouteInfo>? children,
   }) : super(
          InfoExitRoute.name,
-         args: InfoExitRouteArgs(key: key, uuid: uuid, name: name, iat: iat),
+         args: InfoExitRouteArgs(
+           key: key,
+           uuid: uuid,
+           name: name,
+           iat: iat,
+           isActivate: isActivate,
+         ),
          initialChildren: children,
        );
 
@@ -115,6 +122,7 @@ class InfoExitRoute extends PageRouteInfo<InfoExitRouteArgs> {
         uuid: args.uuid,
         name: args.name,
         iat: args.iat,
+        isDeactivate: args.isActivate,
       );
     },
   );
@@ -126,6 +134,7 @@ class InfoExitRouteArgs {
     required this.uuid,
     required this.name,
     required this.iat,
+    required this.isActivate,
   });
 
   final Key? key;
@@ -136,9 +145,11 @@ class InfoExitRouteArgs {
 
   final String iat;
 
+  final bool isActivate;
+
   @override
   String toString() {
-    return 'InfoExitRouteArgs{key: $key, uuid: $uuid, name: $name, iat: $iat}';
+    return 'InfoExitRouteArgs{key: $key, uuid: $uuid, name: $name, iat: $iat, isActivate: $isActivate}';
   }
 
   @override
@@ -148,12 +159,17 @@ class InfoExitRouteArgs {
     return key == other.key &&
         uuid == other.uuid &&
         name == other.name &&
-        iat == other.iat;
+        iat == other.iat &&
+        isActivate == other.isActivate;
   }
 
   @override
   int get hashCode =>
-      key.hashCode ^ uuid.hashCode ^ name.hashCode ^ iat.hashCode;
+      key.hashCode ^
+      uuid.hashCode ^
+      name.hashCode ^
+      iat.hashCode ^
+      isActivate.hashCode;
 }
 
 /// generated route for
