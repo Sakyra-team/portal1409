@@ -7,9 +7,9 @@ part 'api.g.dart';
 // const domainName = "http://10.0.2.2:1409/api";
 // const String domainName = "https://my1409.ru/api";
 // const domainName = "http://192.168.1.75:1409/api";
-const String domainName = "http://192.168.1.75:1409/api";
+// const String domainName = "http://10.225.167.3:1409/api";
 
-@RestApi(baseUrl: domainName)
+@RestApi(baseUrl: "http://10.225.167.3:1409/api")
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 

@@ -90,6 +90,73 @@ class DevicesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [InfoExitScreen]
+class InfoExitRoute extends PageRouteInfo<InfoExitRouteArgs> {
+  InfoExitRoute({
+    Key? key,
+    required String uuid,
+    required String name,
+    required String iat,
+    List<PageRouteInfo>? children,
+  }) : super(
+         InfoExitRoute.name,
+         args: InfoExitRouteArgs(key: key, uuid: uuid, name: name, iat: iat),
+         initialChildren: children,
+       );
+
+  static const String name = 'InfoExitRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<InfoExitRouteArgs>();
+      return InfoExitScreen(
+        key: args.key,
+        uuid: args.uuid,
+        name: args.name,
+        iat: args.iat,
+      );
+    },
+  );
+}
+
+class InfoExitRouteArgs {
+  const InfoExitRouteArgs({
+    this.key,
+    required this.uuid,
+    required this.name,
+    required this.iat,
+  });
+
+  final Key? key;
+
+  final String uuid;
+
+  final String name;
+
+  final String iat;
+
+  @override
+  String toString() {
+    return 'InfoExitRouteArgs{key: $key, uuid: $uuid, name: $name, iat: $iat}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! InfoExitRouteArgs) return false;
+    return key == other.key &&
+        uuid == other.uuid &&
+        name == other.name &&
+        iat == other.iat;
+  }
+
+  @override
+  int get hashCode =>
+      key.hashCode ^ uuid.hashCode ^ name.hashCode ^ iat.hashCode;
+}
+
+/// generated route for
 /// [ListExitScreen]
 class ListExitRoute extends PageRouteInfo<void> {
   const ListExitRoute({List<PageRouteInfo>? children})

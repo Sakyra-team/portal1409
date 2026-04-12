@@ -31,6 +31,8 @@ dependencies:
   talker_bloc_logger: ^5.1.15
   shared_preferences: ^2.5.4
   firebase_core: ^4.6.0
+  share_plus: ^12.0.2
+  qr_flutter: ^4.1.0
 
 
 

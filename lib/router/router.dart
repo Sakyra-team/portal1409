@@ -38,9 +38,14 @@ class AppRouter extends RootStackRouter {
       path: "/exit/create",
       guards: [AuthGuard()],
     ),
+    AutoRoute(
+      page: InfoExitRoute.page,
+      path: "/exit/info",
+      guards: [AuthGuard()],
+    ),
 
 
-    AutoRoute(page: AccountRoute.page, path: "/account"),
+    AutoRoute(page: AccountRoute.page, path: "/account", guards: [AuthGuard()]),
     AutoRoute(page: SettingsRoute.page, path: "/settings", guards: [AuthGuard()],),
     AutoRoute(page: SecurityRoute.page, path: "/security", guards: [AuthGuard()],),
     AutoRoute(page: DevicesRoute.page, path: "/devices", guards: [AuthGuard()],),

@@ -195,7 +195,14 @@ class _ListExitPageState extends State<ListExitPage> {
           time: element.is_deleted ? "" : calcListExitTime(element.created_at),
           leading: Icons.directions_run_outlined,
           action: Icons.arrow_forward_ios,
-          func: () => showCustomAlert(
+          func: () => context.router.push(
+            InfoExitRoute(
+              uuid: element.id,
+              name: "${element.name} ${element.group.toUpperCase()}",
+              iat: calcListExitDate(element.created_at),
+            ),
+          ),
+          actionFunc: () => showCustomAlert(
             context,
             "${element.name} ${element.group}",
             "Закрыть",
@@ -203,7 +210,6 @@ class _ListExitPageState extends State<ListExitPage> {
                 "Причина: ${element.cause}\nДата создания заявки: ${calcListExitDate(element.created_at)}\nИспользовано: ${element.usedAt != null ? calcListExitDate(element.created_at) : "Не использована"}\nСоздал заявку: ${element.teacher_name}",
             isCenter: true,
           ),
-          actionFunc: () {},
         ),
       );
       result.add(const SizedBox(height: 12));

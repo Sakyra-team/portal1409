@@ -11,7 +11,16 @@ final class CreateExitInitial extends CreateExitState {}
 
 final class CreateExitLoading extends CreateExitState {}
 
-final class CreateExitLoaded extends CreateExitState {}
+final class CreateExitLoaded extends CreateExitState {
+  const CreateExitLoaded({required this.uuid, required this.name, required this.date});
+
+  final String uuid;
+  final String name;
+  final String date;
+
+  @override
+  List<Object> get props => [];
+}
 
 final class CreateExitNoCorpuse extends CreateExitState {}
 

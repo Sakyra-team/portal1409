@@ -5,11 +5,11 @@ class DeskriptionCard extends StatelessWidget {
     super.key,
     required this.text,
     required this.date,
-     required this.time,
+    required this.time,
     required this.leading,
     required this.action,
     required this.func,
-    required this.actionFunc
+    required this.actionFunc,
   });
 
   final String text;
@@ -23,59 +23,66 @@ class DeskriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return GestureDetector(
-      onTap: func,
-      child: ClipRRect(
-        borderRadius: .circular(15),
-        child: BackdropFilter(
-          filter: .blur(sigmaX: 26, sigmaY: 26),
-          child: Container(
-            width: double.infinity,
-            height: 73,
-            decoration: BoxDecoration(
-              color: theme.cardColor,
-              border: .all(color: theme.dividerColor),
-              borderRadius: .circular(15),
-            ),
+    return Material(
+      child: InkWell(
+                borderRadius: .circular(15),
 
-            child: Center(
-              child: Padding(
-                padding: const .symmetric(horizontal: 12),
-                child: Row(
-                  children: [
-                    Icon(leading, size: 32),
-                    const SizedBox(width: 7),
+        splashColor: theme.primaryColor,
+        highlightColor: theme.primaryColor.withAlpha(67),
+        splashFactory: InkRipple.splashFactory,
+        onTap: func,
+        child: ClipRRect(
+          borderRadius: .circular(15),
+          child: BackdropFilter(
+            filter: .blur(sigmaX: 26, sigmaY: 26),
+            child: Container(
+              width: double.infinity,
+              height: 73,
+              decoration: BoxDecoration(
+                color: theme.cardColor,
+                border: .all(color: theme.dividerColor),
+                borderRadius: .circular(15),
+              ),
 
-                    Column(
-                      crossAxisAlignment: .start,
-                      mainAxisSize: .min,
-                      children: [
-                        Text(text, style: theme.textTheme.titleSmall),
-                        Row(
-                          mainAxisSize: .min,
-                          children: [
-                            Text(
-                              date,
-                              style: theme.textTheme.labelLarge?.copyWith(
-                                color: theme.hintColor,
+              child: Center(
+                child: Padding(
+                  padding: const .symmetric(horizontal: 12),
+                  child: Row(
+                    children: [
+                      Icon(leading, size: 32),
+                      const SizedBox(width: 7),
+
+                      Column(
+                        crossAxisAlignment: .start,
+                        mainAxisSize: .min,
+                        children: [
+                          Text(text, style: theme.textTheme.titleSmall),
+                          Row(
+                            mainAxisSize: .min,
+                            children: [
+                              Text(
+                                date,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: theme.hintColor,
+                                ),
                               ),
-                            ),
-                            const SizedBox(width: 64),
-                            Text(
-                              time,
-                              style: theme.textTheme.labelLarge?.copyWith(
-                                color: theme.hintColor,
+                              const SizedBox(width: 64),
+                              Text(
+                                time,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: theme.hintColor,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                            ],
+                          ),
+                        ],
+                      ),
 
-                    const Spacer(),
+                      const Spacer(),
 
-                    Icon(action, size: 32),
-                  ],
+                      Icon(action, size: 32),
+                    ],
+                  ),
                 ),
               ),
             ),

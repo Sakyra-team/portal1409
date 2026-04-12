@@ -20,6 +20,8 @@ final ThemeData darkTheme = ThemeData(
     
   ),
 
+  
+
   scaffoldBackgroundColor: Colors.black,
   // splashColor: const .fromARGB(255, 71, 73, 226),
   cardColor: const .fromARGB(200, 24, 23, 27),

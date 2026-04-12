@@ -1,0 +1,78 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:portal1409/core/core.dart';
+import 'package:portal1409/features/exit/info_exit/presentation/widgets/widgets.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+import 'package:share_plus/share_plus.dart';
+
+@RoutePage()
+class InfoExitScreen extends StatelessWidget {
+  const InfoExitScreen({
+    super.key,
+    required this.uuid,
+    required this.name,
+    required this.iat,
+  });
+
+  final String uuid;
+  final String name;
+  final String iat;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Scaffold(
+      body: header([
+        Center(
+          child: Padding(
+            padding: const .only(top: 108, left: 12, right: 12, bottom: 64),
+            child: Column(
+              children: [
+                Text(name, style: theme.textTheme.titleLarge),
+                const SizedBox(height: 5),
+                Text(
+                  iat,
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    color: theme.hintColor,
+                  ),
+                ),
+
+                Expanded(
+                  child: Center(
+                    child: QrImageView(
+                      data: "https://my1409.ru/application/$uuid",
+                      version: QrVersions.auto,
+                      eyeStyle: const QrEyeStyle(color: Colors.white),
+                      dataModuleStyle: const QrDataModuleStyle(
+                        color: Colors.white,
+                      ),
+                      size: 200,
+                    ),
+                  ),
+                ),
+
+                BasicButton(
+                  text: "Поделится",
+                  onTap: () => SharePlus.instance.share(
+                    ShareParams(
+                      uri: .parse("https://my1409.ru/application/$uuid"),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+
+                Row(
+                  children: [
+                    SmallButtonDelete(),
+                    const SizedBox(width: 8),
+                    SmallButtonCopy(),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+}

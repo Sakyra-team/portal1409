@@ -7,6 +7,10 @@ part 'create_exit_state.dart';
 class CreateExitCubit extends Cubit<CreateExitState> {
   CreateExitCubit({required this.apiClient}) : super(CreateExitInitial());
 
+  void init() {
+    emit(CreateExitInitial());
+  }
+
   Future<void> createApplication(
     String fio,
     String groupNumber,
@@ -26,7 +30,13 @@ class CreateExitCubit extends Cubit<CreateExitState> {
       });
 
       if (response.status == "success") {
-        emit(CreateExitLoaded());
+        emit(
+          CreateExitLoaded(
+            uuid: response.application_id,
+            name: "$fio $groupNumber${groupLetter.toUpperCase()}",
+            date: time,
+          ),
+        );
       } else {
         if (response.message ==
             "Вы не можете создавать заявки для этого корпуса") {

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/exit/create_exit/cubit/create_exit_cubit.dart';
 import 'package:portal1409/features/exit/create_exit/presentation/view/create_exit_page.dart';
+import 'package:portal1409/router/router.dart';
 
 @RoutePage()
 class CreateExitScreen extends StatefulWidget {
@@ -16,6 +17,11 @@ class CreateExitScreen extends StatefulWidget {
 class _CreateExitScreenState extends State<CreateExitScreen> {
   final TextEditingController controllerFIO = TextEditingController();
   final TextEditingController controllerSymbol = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    context.read<CreateExitCubit>().init();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,6 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
         Center(
           child: Padding(
             padding: const .only(top: 40, left: 12, right: 12),
-
             child: BlocConsumer<CreateExitCubit, CreateExitState>(
               listener: (context, state) {
                 if (state is CreateExitNoCorpuse) {
@@ -34,7 +39,13 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
                     "Классный руководитель запретил(а) создавать заявки",
                   );
                 } else if (state is CreateExitLoaded) {
-                  // TODO
+                  context.router.push(
+                    InfoExitRoute(
+                      uuid: state.uuid,
+                      name: state.name,
+                      iat: state.date,
+                    ),
+                  );
                 }
               },
               builder: (context, state) {

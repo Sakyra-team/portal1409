@@ -12,7 +12,8 @@ void showSnack(String text) {
     ..showSnackBar(
       SnackBar(
         behavior: .floating,
-        backgroundColor: Colors.transparent, // Прозрачный фон для кастомного стиля
+        backgroundColor:
+            Colors.transparent,
         elevation: 0,
         content: TweenAnimationBuilder<Offset>(
           duration: const Duration(milliseconds: 1000),
@@ -28,7 +29,9 @@ void showSnack(String text) {
                   filter: .blur(sigmaX: 26.0, sigmaY: 26.0),
                   child: Container(
                     padding: const .all(16),
-                    color: Colors.transparent,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).cardColor,
+                    ),
                     child: Text(text),
                   ),
                 ),
