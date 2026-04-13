@@ -85,26 +85,24 @@ final Dio dio = Dio(
   ),
 );
 final ApiClient apiClient = ApiClient(dio);
-final talker = Talker();
+// final talker = Talker();
 
 Future<void> loadConfig() async {
-  dio.interceptors.add(
-    TalkerDioLogger(
-      talker: talker,
-      settings: const TalkerDioLoggerSettings(
-        printRequestHeaders: true,
-        printResponseHeaders: true,
-        printResponseMessage: true,
-      ),
-    ),
-  );
+  // dio.interceptors.add(
+  //   TalkerDioLogger(
+  //     talker: talker,
+  //     settings: const TalkerDioLoggerSettings(
+  //       printRequestHeaders: true,
+  //       printResponseHeaders: true,
+  //       printResponseMessage: true,
+  //     ),
+  //   ),
+  // );
 
   dio.interceptors.add(DioInterceptor(loginManager, dio));
 
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final ServiceRepository serviceRepository = ServiceRepository(prefs: prefs);
-
-  Bloc.observer = TalkerBlocObserver(talker: talker);
 
   getIt.registerLazySingleton<ApiClient>(() => apiClient);
   getIt.registerLazySingleton<LoginRepository>(() => loginManager);

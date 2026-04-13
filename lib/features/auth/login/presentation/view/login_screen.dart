@@ -76,7 +76,6 @@ class _LoginScreenState extends State<LoginScreen> {
     } else if (state is LoginExceptionTeacherNotFound) {
       return LoginPageErrorTeacher(controller: controller);
     } else if (state is LoginLoaded) {
-      debugPrint("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
       return Center(
         child: Text(
           "Переадресация",
