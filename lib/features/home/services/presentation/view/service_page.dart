@@ -106,6 +106,7 @@ class ServicePage extends StatelessWidget {
             ],
           );
         }),
+        const SizedBox(height: 64),
       ],
     );
   }
@@ -114,7 +115,7 @@ class ServicePage extends StatelessWidget {
     final List<Widget> result = [];
 
     for (int l = 0; l < list.length; l++) {
-      for (int i = 0; i < servicesMapWithout.length; i++) {
+      for (int i = 0; i < servicesMapWithout.length + 1; i++) {
         if (i.toString() == list[l]) {
           final func = servicesMapWithout[int.parse(list[l])]?["func"];
           result.add(

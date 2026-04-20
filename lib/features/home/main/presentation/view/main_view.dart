@@ -13,12 +13,12 @@ class MainScreen extends StatelessWidget {
     final theme = Theme.of(context);
     final Map<int, List> list = {
       0: [const Icon(Icons.directions_run_outlined, size: 48), "Разрешения на выход", () => context.router.pushPath("/exit/create")],
-      1: [const Icon(Icons.elevator_outlined, size: 48), "Разрешения на лифт", () {}],
-      2: [const Icon(Icons.speaker_outlined, size: 48), "Громкая связь", () {}],
-      3: [const Icon(Icons.person_add_alt_1_outlined, size: 48), "Заказ пропуска", () {}],
+      1: [const Icon(Icons.elevator_outlined, size: 48), "Разрешения на лифт", () => context.router.pushPath("/lift")],
+      2: [const Icon(Icons.speaker_outlined, size: 48), "Громкая связь", () => context.router.pushPath("/announcer")],
+      3: [const Icon(Icons.person_add_alt_1_outlined, size: 48), "Заказ пропуска", () => context.router.pushPath("/guest/pass")],
     };
     return Scaffold(
-      body: header([
+      body: header(context, [
         Center(
           child: Padding(
             padding: const .only(top: 40, left: 12, right: 12),

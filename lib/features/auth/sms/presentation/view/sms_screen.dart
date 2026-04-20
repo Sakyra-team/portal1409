@@ -27,7 +27,7 @@ class _SmsScreenState extends State<SmsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: header([
+      body: header(context, [
         SafeArea(
           child: Center(
             child: Padding(

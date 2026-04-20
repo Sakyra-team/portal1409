@@ -16,8 +16,10 @@ class BigCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Material(
+      borderRadius: .circular(15),
+
       child: InkWell(
-                borderRadius: .circular(15),
+        borderRadius: .circular(15),
 
         splashColor: theme.primaryColor,
         highlightColor: theme.primaryColor.withAlpha(67),
@@ -28,6 +30,7 @@ class BigCard extends StatelessWidget {
           child: BackdropFilter(
             filter: .blur(sigmaX: 26, sigmaY: 26),
             child: Container(
+              padding: const .only(left: 12, right: 12),
               decoration: BoxDecoration(
                 color: theme.cardColor,
                 border: .all(color: theme.dividerColor),

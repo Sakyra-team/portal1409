@@ -4,4 +4,5 @@ abstract interface class LoginRepositoryAbstract {
   Future<String?> getSession();
   Future<String?> getRememberToken();
   Future<bool> isAuth();
+  
 }

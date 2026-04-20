@@ -1,0 +1,1 @@
+export './presentation/view/it_polygon_screen.dart';

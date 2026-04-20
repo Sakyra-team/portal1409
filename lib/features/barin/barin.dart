@@ -1,0 +1,1 @@
+export './presentation/view/barin_screen.dart';

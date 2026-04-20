@@ -78,9 +78,13 @@ class ServicePageNoFavorite extends StatelessWidget {
               }),
 
               const SizedBox(height: 26),
+
             ],
           );
         }),
+      
+        const SizedBox(height: 64),
+
       ],
     );
   }

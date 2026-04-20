@@ -7,7 +7,7 @@ final ThemeData darkTheme = ThemeData(
 
   primaryColor: const .fromARGB(255, 71, 73, 226),
   colorScheme: ColorScheme(
-    brightness: Brightness.dark,
+    brightness: .dark,
     primary: const .fromARGB(255, 71, 73, 226),
     
     onPrimary: const .fromARGB(255, 71, 73, 226),

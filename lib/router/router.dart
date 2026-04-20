@@ -8,7 +8,7 @@ part 'router.gr.dart';
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => const RouteType.material();
+  RouteType get defaultRouteType => const RouteType.cupertino();
 
   @override
   List<AutoRoute> get routes => [
@@ -44,10 +44,31 @@ class AppRouter extends RootStackRouter {
       guards: [AuthGuard()],
     ),
 
-
     AutoRoute(page: AccountRoute.page, path: "/account", guards: [AuthGuard()]),
-    AutoRoute(page: SettingsRoute.page, path: "/settings", guards: [AuthGuard()],),
-    AutoRoute(page: SecurityRoute.page, path: "/security", guards: [AuthGuard()],),
-    AutoRoute(page: DevicesRoute.page, path: "/devices", guards: [AuthGuard()],),
+    AutoRoute(
+      page: SettingsRoute.page,
+      path: "/settings",
+      guards: [AuthGuard()],
+    ),
+    AutoRoute(
+      page: SecurityRoute.page,
+      path: "/security",
+      guards: [AuthGuard()],
+    ),
+    AutoRoute(page: DevicesRoute.page, path: "/devices", guards: [AuthGuard()]),
+
+    AutoRoute(page: EventsRoute.page, path: "/events"),
+    AutoRoute(page: BarinRoute.page, path: "/barin", guards: [AuthGuard()]),
+    AutoRoute(page: LiftRoute.page, path: "/lift", guards: [AuthGuard()]),
+    AutoRoute(page: GuestPassRoute.page, path: "/guest/pass", guards: [AuthGuard()]),
+
+    AutoRoute(page: RadioRoute.page, path: "/radio", guards: [AuthGuard()]),
+    AutoRoute(page: BellsRoute.page, path: "/bells", guards: [AuthGuard()]),
+    AutoRoute(page: AnnouncerRoute.page, path: "/announcer", guards: [AuthGuard()]),
+    AutoRoute(page: NewsRoute.page, path: "/news", guards: [AuthGuard()]),
+
+    AutoRoute(page: ITRezidentsRoute.page, path: "/it_rezidents", guards: [AuthGuard()]),
+    AutoRoute(page: ITPolygonRoute.page, path: "/it_polygon", guards: [AuthGuard()]),
+
   ];
 }

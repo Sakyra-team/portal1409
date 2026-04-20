@@ -10,7 +10,7 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      body: header([
+      body: header(context, [
         Center(
           child: Text("В разработке 🔥", style: theme.textTheme.titleLarge,),
         )

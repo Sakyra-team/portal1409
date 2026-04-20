@@ -1,0 +1,1 @@
+export './presentation/view/announcer_screen.dart';

@@ -1,0 +1,1 @@
+export './presentation/view/news_screnn.dart';

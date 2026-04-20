@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get_it/get_it.dart';
 import 'package:portal1409/features/auth/login/bloc/login_bloc.dart';
 import 'package:portal1409/features/auth/sms/bloc/sms_bloc.dart';
@@ -15,6 +16,9 @@ import 'package:dio/dio.dart';
 import 'package:portal1409/api/api.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
+import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 part 'config.dart';
 
@@ -23,9 +27,9 @@ void main() async {
 
   await loadConfig();
 
-  loginManager.logout();
+  // loginManager.logout();
 
-  // GetIt.I<ServiceRepository>().removeAllFavorite();h
+  // GetIt.I<ServiceRepository>().removeAllFavorite();
 
   runApp(const MobileApp());
 }

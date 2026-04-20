@@ -24,6 +24,8 @@ class DeskriptionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Material(
+                borderRadius: .circular(15),
+
       child: InkWell(
                 borderRadius: .circular(15),
 

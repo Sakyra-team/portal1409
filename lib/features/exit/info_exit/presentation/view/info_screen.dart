@@ -32,7 +32,7 @@ class _InfoExitScreenState extends State<InfoExitScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      body: header([
+      body: header(context, [
         Center(
           child: Padding(
             padding: const .only(top: 108, left: 12, right: 12, bottom: 64),

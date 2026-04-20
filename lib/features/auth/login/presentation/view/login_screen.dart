@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      body: header([
+      body: header(context, [
         SafeArea(
           child: Center(
             child: Padding(

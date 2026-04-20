@@ -1,3 +1,13 @@
 export './auth/auth.dart';
 export './home/home.dart';
 export './exit/exit.dart';
+export './events/events.dart';
+export './barin/barin.dart';
+export './lift/lift.dart';
+export './guest_pass/guest_pass.dart';
+export './announcer/announcer.dart';
+export './radio/radio.dart';
+export './bells/bells.dart';
+export './news/news.dart';
+export './it_rezidents/it_rezidents.dart';
+export './it_polygon/it_polygon.dart';

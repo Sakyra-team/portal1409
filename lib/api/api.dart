@@ -1,3 +1,4 @@
+import 'package:portal1409/api/models/get_event.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:portal1409/api/models/models.dart';
 import 'package:dio/dio.dart';
@@ -5,11 +6,11 @@ import 'package:dio/dio.dart';
 part 'api.g.dart';
 
 // const domainName = "http://10.0.2.2:1409/api";
-const String domainName = "https://my1409.ru/api";
+// const String domainName = "https://my1409.ru/api";
 // const domainName = "http://192.168.1.75:1409/api";
 // const String domainName = "http://10.225.167.3:1409/api";
 
-@RestApi(baseUrl: domainName)
+@RestApi(baseUrl: "http://127.0.0.1:1409")
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 
@@ -17,7 +18,7 @@ abstract class ApiClient {
   // Auth application
   // ----------------
 
-  @POST('/teacher/login/phone-send') // enter sms code
+  @POST("/api/teacher/login/phone-send") // enter sms code
   Future<SendPhone> sendPhone(@Body() Map<String, String> body);
   /*
   input data:
@@ -30,7 +31,7 @@ abstract class ApiClient {
     {'status': 'success'}, 200
   */
 
-  @POST("/teacher/login/phone-check") // check sms code
+  @POST("/api/teacher/login/phone-check") // check sms code
   Future<CheckCode> checkCode(@Body() Map<String, String> body);
   /*
   input data:
@@ -44,7 +45,7 @@ abstract class ApiClient {
     {'status': 'success'}, 200
   */
 
-  @GET("/teacher") // get teacher info
+  @GET("/api/teacher") // get teacher info
   Future<Teacher> teacherInfo();
   /*
   output data:
@@ -59,7 +60,7 @@ abstract class ApiClient {
     }
   */
 
-  @POST("/teacher") // edit teacher info
+  @POST("/api/teacher") // edit teacher info
   Future<EditTeacher> editTeacherInfo();
   /*
   input data:
@@ -80,23 +81,23 @@ abstract class ApiClient {
   // Lfit application
   // ----------------
 
-  @POST('/lift/1')
+  @POST("/api/lift/1")
   Future<Lift> lift1();
 
-  @POST('/lift/2')
+  @POST("/api/lift/2")
   Future<Lift> lift2();
 
-  @POST('/lift/3')
+  @POST("/api/lift/3")
   Future<Lift> lift3();
 
-  @POST('/lift/4')
+  @POST("/api/lift/4")
   Future<Lift> lift4();
 
   // ----------------
   // Exit application
   // ----------------
 
-  @POST("/teacher/exit_application") // Create exit application
+  @POST("/api/teacher/exit_application") // Create exit application
   Future<CreateExitApplication> createExitApplication(
     @Body()
     Map<String, String> body, // fio, group number, group letter, cause, time
@@ -120,8 +121,8 @@ abstract class ApiClient {
     {'status': 'error', 'message': 'Выход для этого класса запрещен классным руководителем'}
   */
 
-  @GET("/teacher/history") // Get exit application histroy
-  Future<List<HistoryExitAppInfo>> getExitAppHistory(@Query("all") bool? isAll,);
+  @GET("/api/teacher/history") // Get exit application histroy
+  Future<List<HistoryExitAppInfo>> getExitAppHistory(@Query("/apiall") bool? isAll);
   /*
   output data:
   [{
@@ -137,11 +138,32 @@ abstract class ApiClient {
   }]
   */
 
-  @POST("/teacher/exit_application/{uuid}/close/")
-  Future<ExitClose> closeExitApplication(@Path() String uuid, );
+  @POST("/api/teacher/exit_application/{uuid}/close/")
+  Future<ExitClose> closeExitApplication(@Path() String uuid);
   /*
   output data:
   {'status': 'success'}
   {'status': 'error', 'message': 'application not found'}
+  */
+
+  // ------
+  // Events
+  // ------
+
+  @GET("/events/api/get_events")
+  Future<List<GetEvent>> getEvents();
+  /*
+  output data:
+  [{
+    "id": id,
+    'event_name': event.name,
+    'date': event.date,
+    'time': event.time,
+    'description': event.description,
+    'location': event.location,
+    'is_online': event.is_online,
+    'conference_link': event.conference_link,
+    'is_registration_open': event.is_registration_open
+  }]
   */
 }

@@ -13,7 +13,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      body: header([
+      body: header(context, [
         Center(
           child: Padding(
             padding: const .only(top: 64, left: 12, right: 12),

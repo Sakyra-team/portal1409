@@ -58,6 +58,54 @@ class AccountRouteArgs {
 }
 
 /// generated route for
+/// [AnnouncerScreen]
+class AnnouncerRoute extends PageRouteInfo<void> {
+  const AnnouncerRoute({List<PageRouteInfo>? children})
+    : super(AnnouncerRoute.name, initialChildren: children);
+
+  static const String name = 'AnnouncerRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AnnouncerScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [BarinScreen]
+class BarinRoute extends PageRouteInfo<void> {
+  const BarinRoute({List<PageRouteInfo>? children})
+    : super(BarinRoute.name, initialChildren: children);
+
+  static const String name = 'BarinRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BarinScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [BellsScreen]
+class BellsRoute extends PageRouteInfo<void> {
+  const BellsRoute({List<PageRouteInfo>? children})
+    : super(BellsRoute.name, initialChildren: children);
+
+  static const String name = 'BellsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BellsScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [CreateExitScreen]
 class CreateExitRoute extends PageRouteInfo<void> {
   const CreateExitRoute({List<PageRouteInfo>? children})
@@ -85,6 +133,70 @@ class DevicesRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const DevicesScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [EventsScreen]
+class EventsRoute extends PageRouteInfo<void> {
+  const EventsRoute({List<PageRouteInfo>? children})
+    : super(EventsRoute.name, initialChildren: children);
+
+  static const String name = 'EventsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const EventsScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [GuestPassScreen]
+class GuestPassRoute extends PageRouteInfo<void> {
+  const GuestPassRoute({List<PageRouteInfo>? children})
+    : super(GuestPassRoute.name, initialChildren: children);
+
+  static const String name = 'GuestPassRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const GuestPassScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [ITPolygonScreen]
+class ITPolygonRoute extends PageRouteInfo<void> {
+  const ITPolygonRoute({List<PageRouteInfo>? children})
+    : super(ITPolygonRoute.name, initialChildren: children);
+
+  static const String name = 'ITPolygonRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ITPolygonScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [ITRezidentsScreen]
+class ITRezidentsRoute extends PageRouteInfo<void> {
+  const ITRezidentsRoute({List<PageRouteInfo>? children})
+    : super(ITRezidentsRoute.name, initialChildren: children);
+
+  static const String name = 'ITRezidentsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ITRezidentsScreen();
     },
   );
 }
@@ -173,6 +285,22 @@ class InfoExitRouteArgs {
 }
 
 /// generated route for
+/// [LiftScreen]
+class LiftRoute extends PageRouteInfo<void> {
+  const LiftRoute({List<PageRouteInfo>? children})
+    : super(LiftRoute.name, initialChildren: children);
+
+  static const String name = 'LiftRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LiftScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [ListExitScreen]
 class ListExitRoute extends PageRouteInfo<void> {
   const ListExitRoute({List<PageRouteInfo>? children})
@@ -221,6 +349,22 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [NewsScreen]
+class NewsRoute extends PageRouteInfo<void> {
+  const NewsRoute({List<PageRouteInfo>? children})
+    : super(NewsRoute.name, initialChildren: children);
+
+  static const String name = 'NewsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const NewsScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [NotificationsScreen]
 class NotificationsRoute extends PageRouteInfo<void> {
   const NotificationsRoute({List<PageRouteInfo>? children})
@@ -232,6 +376,22 @@ class NotificationsRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const NotificationsScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [RadioScreen]
+class RadioRoute extends PageRouteInfo<void> {
+  const RadioRoute({List<PageRouteInfo>? children})
+    : super(RadioRoute.name, initialChildren: children);
+
+  static const String name = 'RadioRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const RadioScreen();
     },
   );
 }

@@ -12,7 +12,7 @@ part of 'api.dart';
 
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://my1409.ru/api';
+    baseUrl ??= 'http://127.0.0.1:1409';
   }
 
   final Dio _dio;
@@ -32,7 +32,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/teacher/login/phone-send',
+            '/api/teacher/login/phone-send',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -60,7 +60,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/teacher/login/phone-check',
+            '/api/teacher/login/phone-check',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -87,7 +87,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/teacher',
+            '/api/teacher',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -114,7 +114,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/teacher',
+            '/api/teacher',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -141,7 +141,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/lift/1',
+            '/api/lift/1',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -168,7 +168,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/lift/2',
+            '/api/lift/2',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -195,7 +195,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/lift/3',
+            '/api/lift/3',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -222,7 +222,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/lift/4',
+            '/api/lift/4',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -252,7 +252,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/teacher/exit_application',
+            '/api/teacher/exit_application',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -272,7 +272,7 @@ class _ApiClient implements ApiClient {
   @override
   Future<List<HistoryExitAppInfo>> getExitAppHistory(bool? isAll) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'all': isAll};
+    final queryParameters = <String, dynamic>{r'/apiall': isAll};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
@@ -280,7 +280,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/teacher/history',
+            '/api/teacher/history',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -312,7 +312,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/teacher/exit_application/${uuid}/close/',
+            '/api/teacher/exit_application/${uuid}/close/',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -322,6 +322,35 @@ class _ApiClient implements ApiClient {
     late ExitClose _value;
     try {
       _value = ExitClose.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<GetEvent>> getEvents() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<GetEvent>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/events/api/get_events',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<GetEvent> _value;
+    try {
+      _value = _result.data!
+          .map((dynamic i) => GetEvent.fromJson(i as Map<String, dynamic>))
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

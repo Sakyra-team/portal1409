@@ -1,0 +1,1 @@
+export './presentation/view/it_rezidents_screen.dart';

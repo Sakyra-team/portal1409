@@ -26,7 +26,7 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: header([
+      body: header(context, [
         Center(
           child: Padding(
             padding: const .only(top: 40, left: 12, right: 12),

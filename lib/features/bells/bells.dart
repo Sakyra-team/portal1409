@@ -1,0 +1,1 @@
+export './presentation/view/bells_screen.dart';

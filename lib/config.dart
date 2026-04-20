@@ -85,19 +85,36 @@ final Dio dio = Dio(
   ),
 );
 final ApiClient apiClient = ApiClient(dio);
-// final talker = Talker();
+final Talker talker = TalkerFlutter.init();
+final CookieManager cookieManager = CookieManager.instance();
 
 Future<void> loadConfig() async {
-  // dio.interceptors.add(
-  //   TalkerDioLogger(
-  //     talker: talker,
-  //     settings: const TalkerDioLoggerSettings(
-  //       printRequestHeaders: true,
-  //       printResponseHeaders: true,
-  //       printResponseMessage: true,
-  //     ),
-  //   ),
-  // );
+  dio.interceptors.add(
+    TalkerDioLogger(
+      talker: talker,
+      settings: const TalkerDioLoggerSettings(
+        printRequestHeaders: true,
+        printResponseHeaders: true,
+        printResponseMessage: true,
+      ),
+    ),
+  );
+
+  await cookieManager.setCookie(
+    url: WebUri("http://127.0.0.1:1409"),
+    name: "remember",
+    value: await loginManager.getRememberToken() ?? "",
+    path: "/",
+    isSecure: false,
+  );
+
+  await cookieManager.setCookie(
+    url: WebUri("http://127.0.0.1:1409"),
+    name: "session",
+    value: await loginManager.getSession() ?? "",
+    path: "/",
+    isSecure: false,
+  );
 
   dio.interceptors.add(DioInterceptor(loginManager, dio));
 
