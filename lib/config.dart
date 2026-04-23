@@ -100,21 +100,25 @@ Future<void> loadConfig() async {
     ),
   );
 
-  await cookieManager.setCookie(
-    url: WebUri("http://127.0.0.1:1409"),
-    name: "remember",
-    value: await loginManager.getRememberToken() ?? "",
-    path: "/",
-    isSecure: false,
-  );
+  try {
+    await cookieManager.setCookie(
+      url: WebUri("http://127.0.0.1:1409"),
+      name: "remember",
+      value: await loginManager.getRememberToken() ?? "",
+      path: "/",
+      isSecure: false,
+    );
 
-  await cookieManager.setCookie(
-    url: WebUri("http://127.0.0.1:1409"),
-    name: "session",
-    value: await loginManager.getSession() ?? "",
-    path: "/",
-    isSecure: false,
-  );
+    await cookieManager.setCookie(
+      url: WebUri("http://127.0.0.1:1409"),
+      name: "session",
+      value: await loginManager.getSession() ?? "",
+      path: "/",
+      isSecure: false,
+    );
+  } catch (e) {
+    // TODO
+  }
 
   dio.interceptors.add(DioInterceptor(loginManager, dio));
 

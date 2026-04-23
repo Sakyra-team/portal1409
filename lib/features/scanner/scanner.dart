@@ -1,0 +1,1 @@
+export './presentation/view/scanner_screen.dart';

@@ -58,6 +58,22 @@ class AccountRouteArgs {
 }
 
 /// generated route for
+/// [AlumniScreen]
+class AlumniRoute extends PageRouteInfo<void> {
+  const AlumniRoute({List<PageRouteInfo>? children})
+    : super(AlumniRoute.name, initialChildren: children);
+
+  static const String name = 'AlumniRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AlumniScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [AnnouncerScreen]
 class AnnouncerRoute extends PageRouteInfo<void> {
   const AnnouncerRoute({List<PageRouteInfo>? children})
@@ -106,6 +122,22 @@ class BellsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CardRequestScreen]
+class CardRequestRoute extends PageRouteInfo<void> {
+  const CardRequestRoute({List<PageRouteInfo>? children})
+    : super(CardRequestRoute.name, initialChildren: children);
+
+  static const String name = 'CardRequestRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CardRequestScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [CreateExitScreen]
 class CreateExitRoute extends PageRouteInfo<void> {
   const CreateExitRoute({List<PageRouteInfo>? children})
@@ -133,6 +165,22 @@ class DevicesRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const DevicesScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [EnrollmentScreen]
+class EnrollmentRoute extends PageRouteInfo<void> {
+  const EnrollmentRoute({List<PageRouteInfo>? children})
+    : super(EnrollmentRoute.name, initialChildren: children);
+
+  static const String name = 'EnrollmentRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const EnrollmentScreen();
     },
   );
 }
@@ -285,6 +333,22 @@ class InfoExitRouteArgs {
 }
 
 /// generated route for
+/// [LiftAdminScreen]
+class LiftAdminRoute extends PageRouteInfo<void> {
+  const LiftAdminRoute({List<PageRouteInfo>? children})
+    : super(LiftAdminRoute.name, initialChildren: children);
+
+  static const String name = 'LiftAdminRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LiftAdminScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [LiftScreen]
 class LiftRoute extends PageRouteInfo<void> {
   const LiftRoute({List<PageRouteInfo>? children})
@@ -392,6 +456,22 @@ class RadioRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const RadioScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [ScannerScreen]
+class ScannerRoute extends PageRouteInfo<void> {
+  const ScannerRoute({List<PageRouteInfo>? children})
+    : super(ScannerRoute.name, initialChildren: children);
+
+  static const String name = 'ScannerRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ScannerScreen();
     },
   );
 }
@@ -508,6 +588,38 @@ class SmsRouteArgs {
 }
 
 /// generated route for
+/// [SovetRequestScreen]
+class SovetRequestRoute extends PageRouteInfo<void> {
+  const SovetRequestRoute({List<PageRouteInfo>? children})
+    : super(SovetRequestRoute.name, initialChildren: children);
+
+  static const String name = 'SovetRequestRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SovetRequestScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [SportsmanRegeditScreen]
+class SportsmanRegeditRoute extends PageRouteInfo<void> {
+  const SportsmanRegeditRoute({List<PageRouteInfo>? children})
+    : super(SportsmanRegeditRoute.name, initialChildren: children);
+
+  static const String name = 'SportsmanRegeditRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SportsmanRegeditScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [TabScreen]
 class TabRoute extends PageRouteInfo<void> {
   const TabRoute({List<PageRouteInfo>? children})
@@ -519,6 +631,22 @@ class TabRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const TabScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [TeachersScreen]
+class TeachersRoute extends PageRouteInfo<void> {
+  const TeachersRoute({List<PageRouteInfo>? children})
+    : super(TeachersRoute.name, initialChildren: children);
+
+  static const String name = 'TeachersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TeachersScreen();
     },
   );
 }

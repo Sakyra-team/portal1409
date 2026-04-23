@@ -1,0 +1,1 @@
+export './presentation/view/sportsman_regedit_screen.dart';

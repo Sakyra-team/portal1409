@@ -58,9 +58,9 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: DevicesRoute.page, path: "/devices", guards: [AuthGuard()]),
 
     AutoRoute(page: EventsRoute.page, path: "/events"),
+    AutoRoute(page: CardRequestRoute.page, path: "/card/requests"),
     AutoRoute(page: BarinRoute.page, path: "/barin", guards: [AuthGuard()]),
     AutoRoute(page: LiftRoute.page, path: "/lift", guards: [AuthGuard()]),
-    AutoRoute(page: GuestPassRoute.page, path: "/guest/pass", guards: [AuthGuard()]),
 
     AutoRoute(page: RadioRoute.page, path: "/radio", guards: [AuthGuard()]),
     AutoRoute(page: BellsRoute.page, path: "/bells", guards: [AuthGuard()]),
@@ -70,5 +70,13 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: ITRezidentsRoute.page, path: "/it_rezidents", guards: [AuthGuard()]),
     AutoRoute(page: ITPolygonRoute.page, path: "/it_polygon", guards: [AuthGuard()]),
 
+    AutoRoute(page: GuestPassRoute.page, path: "/guest/pass", guards: [AuthGuard()]),
+    AutoRoute(page: TeachersRoute.page, path: "/teachers", guards: [AuthGuard()]),
+    AutoRoute(page: EnrollmentRoute.page, path: "/enrollment", guards: [AuthGuard()]),
+    AutoRoute(page: AlumniRoute.page, path: "/alumni", guards: [AuthGuard()]),
+    AutoRoute(page: LiftAdminRoute.page, path: "/lift/admin", guards: [AuthGuard()]),
+    AutoRoute(page: ScannerRoute.page, path: "/scanner", guards: [AuthGuard()]),
+    AutoRoute(page: SovetRequestRoute.page, path: "/sovet/request", guards: [AuthGuard()]),
+    AutoRoute(page: SportsmanRegeditRoute.page, path: "/exit/sportsman", guards: [AuthGuard()]),
   ];
 }

@@ -1,4 +1,4 @@
-const String basicUrl = "http://127.0.0.1:1409/";
+const String basicUrl = "http://127.0.0.1:1409";
 
 const String barinUrl = "$basicUrl/barin"; // B.A.R.I.N u
 const String liftUrl = "$basicUrl/create-lift-application"; // Лифт u
@@ -12,8 +12,8 @@ const String newsUrl = "$basicUrl/admin/news"; // Новости
 const String itRezidentsUrl = "$basicUrl/admin/polygon/residents"; // IT-резиденты
 const String itPolygonUrl = "$basicUrl/it-polygon"; // IT-полигон
 const String teachersUrl = "$basicUrl/admin/users"; // Учителя
-const String getChildrenUrl = "$basicUrl/enrollment/view/5"; // Зачисления
-const String endChildrenUrl = "$basicUrl/alumni_admin"; // Выпускники
+const String enrollmentUrl = "$basicUrl/enrollment/view/5"; // Зачисления
+const String alumniUrl = "$basicUrl/alumni_admin"; // Выпускники
 const String adminLifturl = "$basicUrl/lift_log"; // АдминЛифт
 const String scannerUrl = "$barinUrl/1409qr"; // Сканер
 const String sovetRequestsUrl = "$basicUrl/admin/sovet-applications"; // Заявки совет

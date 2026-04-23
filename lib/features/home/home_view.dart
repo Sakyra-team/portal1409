@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cupertino_native/cupertino_native.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:portal1409/core/domain/ios_version.dart';
 import 'package:portal1409/router/router.dart';
 
 @RoutePage()
@@ -20,10 +22,12 @@ class TabScreen extends StatelessWidget {
       homeIndex: 0,
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
+
         return Scaffold(
           body: defaultTargetPlatform != TargetPlatform.iOS
               ? child
-              : Stack(
+              : isUseIos26()
+              ? Stack(
                   children: [
                     child,
                     Align(
@@ -52,7 +56,8 @@ class TabScreen extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),
+                )
+              : child,
           bottomNavigationBar: defaultTargetPlatform != TargetPlatform.iOS
               ? BottomNavigationBar(
                   currentIndex: tabsRouter.activeIndex,
@@ -76,7 +81,31 @@ class TabScreen extends StatelessWidget {
                     ),
                   ],
                 )
-              : const SizedBox(),
+              : isUseIos26()
+              ? null
+              : CupertinoTabBar(
+                  currentIndex: tabsRouter.activeIndex,
+                  onTap: (index) => tabsRouter.setActiveIndex(index),
+                  items: [
+                    BottomNavigationBarItem(
+                      icon: Icon(CupertinoIcons.home),
+                      label: "Главная",
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(CupertinoIcons.list_bullet),
+                      label: "Сервисы",
+                      
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(CupertinoIcons.app_badge),
+                      label: "Уведомления",
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(CupertinoIcons.search),
+                      label: "Поиск",
+                    ),
+                  ],
+                ),
         );
       },
     );

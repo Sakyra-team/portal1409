@@ -15,15 +15,15 @@ class CreateExitPage extends StatelessWidget {
   final TextEditingController controllerFIO;
   final TextEditingController controllerSymbol;
 
-  static late String? classNumberValue = null;
-  static late String? causeValue = null;
-  static late String? timeValue = null;
+  static String? classNumberValue = null;
+  static String? causeValue = null;
+  static String? timeValue = null;
 
   static late bool isErrorName = false;
-  static late bool isErrorNumber = false;
-  static late bool isErrorSymbol = false;
-  static late bool isErrorCause = false;
-  static late bool isErrorTime = false;
+  static bool isErrorNumber = false;
+  static bool isErrorSymbol = false;
+  static bool isErrorCause = false;
+  static bool isErrorTime = false;
 
   @override
   Widget build(BuildContext context) {
@@ -91,20 +91,19 @@ class CreateExitPage extends StatelessWidget {
           onTap: () async {
             if (controllerFIO.text == "") {
               isErrorName = true;
-            } if (controllerSymbol.text == "") {
+            }
+            if (controllerSymbol.text == "") {
               isErrorSymbol = true;
-            } if (classNumberValue == null) {
+            }
+            if (classNumberValue == null) {
               isErrorNumber = true;
-            } if (causeValue == null) {
+            }
+            if (causeValue == null) {
               isErrorCause = true;
-            } if (timeValue == null) {
+            }
+            if (timeValue == null) {
               isErrorTime = true;
             }
-            debugPrint(isErrorName.toString());
-            debugPrint(isErrorCause.toString());
-            debugPrint(isErrorNumber.toString());
-            debugPrint(isErrorSymbol.toString());
-            debugPrint(isErrorTime.toString());
 
             if (!isErrorName &&
                 !isErrorCause &&

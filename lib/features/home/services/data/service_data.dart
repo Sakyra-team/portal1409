@@ -12,7 +12,7 @@ final Map<ServiceEnum, Map<int, Map<String, dynamic>>> servicesMap = {
     2: {
       "text": "Заявки на карты",
       "icon": Icons.payment_outlined,
-      "func": () async => await openLink("admin/card-applications"),
+      "func": "/card/requests",
     },
     3: {"text": "Мероприятия", "icon": Icons.event_outlined, "func": "/events"},
     4: {"text": "Лифт", "icon": Icons.elevator_outlined, "func": "/lift"},
@@ -66,37 +66,37 @@ final Map<ServiceEnum, Map<int, Map<String, dynamic>>> servicesMap = {
     13: {
       "text": "Учителя",
       "icon": Icons.people_alt_outlined,
-      "func": () async => await openLink("admin/users"),
+      "func": "/teachers",
     },
     14: {
       "text": "Зачисления",
       "icon": Icons.add_chart_outlined,
-      "func": () async => await openLink("enrollment/view/5"),
+      "func": "/enrollment",
     },
     15: {
       "text": "Выпускники",
       "icon": Icons.school_outlined,
-      "func": () async => await openLink("alumni_admin"),
+      "func": "/alumni",
     },
     16: {
       "text": "АдминЛифт",
       "icon": Icons.elevator,
-      "func": () async => await openLink("lift_log"),
+      "func": "/lift/admin",
     },
     17: {
       "text": "Сканер",
       "icon": Icons.scanner_outlined,
-      "func": () async => await openLink("1409qr"),
+      "func": "/scanner",
     },
     18: {
       "text": "Заявки совет",
       "icon": Icons.help_center_outlined,
-      "func": () async => await openLink("admin/sovet-applications"),
+      "func": "/sovet/request",
     },
     19: {
       "text": "Реестр спортсменов",
       "icon": Icons.sports_baseball_outlined,
-      "func": () async => await openLink("athlete_permissions"),
+      "func": "/exit/sportsman",
     },
   },
 };

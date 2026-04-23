@@ -1,0 +1,1 @@
+export './presentation/view/alumni_screen.dart';
