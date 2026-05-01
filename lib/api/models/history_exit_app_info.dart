@@ -6,13 +6,13 @@ part 'history_exit_app_info.g.dart';
 class HistoryExitAppInfo {
   const HistoryExitAppInfo({
     required this.cause,
-    required this.created_at,
+    required this.createdAt,
     required this.group,
     required this.id,
-    required this.is_deleted,
-    required this.is_show,
+    required this.isDeleted,
+    required this.isShow,
     required this.name,
-    required this.teacher_name,
+    required this.teacherName,
     this.usedAt,
   });
 
@@ -20,13 +20,17 @@ class HistoryExitAppInfo {
       _$HistoryExitAppInfoFromJson(json);
 
   final String cause;
-  final String created_at;
+  @JsonKey(name: "created_at")
+  final String createdAt;
   final String group;
   final String id;
-  final bool is_deleted;
-  final bool is_show;
+  @JsonKey(name: "is_deleted")
+  final bool isDeleted;
+  @JsonKey(name: "is_show")
+  final bool isShow;
   final String name;
-  final String teacher_name;
+  @JsonKey(name: "teacher_name")
+  final String teacherName;
   final String? usedAt;
 
   Map<String, dynamic> toJson() => _$HistoryExitAppInfoToJson(this);

@@ -1,4 +1,4 @@
-abstract interface class ServiceRepositoryAbstract {
+abstract interface class ServiceRepositoryInterface {
   Future<void> saveFavorite(int id);
   List<String>? getFavorite();
   Future<void> removeFavorite(int id);

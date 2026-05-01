@@ -12,18 +12,30 @@ class Teacher {
     required this.blockClassExit,
     required this.campus,
     required this.card,
+    required this.birthdayData,
+    required this.extraInfo,
+    required this.showContactToColleagues,
   });
 
   factory Teacher.fromJson(Map<String, dynamic> json) =>
       _$TeacherFromJson(json);
 
   final String name;
-  final int defaultGroupNumber;
-  final String defaultGroupLetter;
+  @JsonKey(name: "default_group_number")
+  final int? defaultGroupNumber;
+  @JsonKey(name: "default_пroup_дetter")
+  final String? defaultGroupLetter;
   final String login;
+  @JsonKey(name: "block_class_exit")
   final bool blockClassExit;
   final String campus;
-  final String card;
+  final String? card;
+  @JsonKey(name: "birthday_data")
+  final String? birthdayData;
+  @JsonKey(name: "extra_info")
+  final String? extraInfo;
+  @JsonKey(name: "show_contact_to_colleagues")
+  final bool? showContactToColleagues;
 
   Map<String, dynamic> toJson() => _$TeacherToJson(this);
 }

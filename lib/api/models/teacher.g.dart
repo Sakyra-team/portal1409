@@ -8,20 +8,26 @@ part of 'teacher.dart';
 
 Teacher _$TeacherFromJson(Map<String, dynamic> json) => Teacher(
   name: json['name'] as String,
-  defaultGroupNumber: (json['defaultGroupNumber'] as num).toInt(),
-  defaultGroupLetter: json['defaultGroupLetter'] as String,
+  defaultGroupNumber: (json['default_group_number'] as num?)?.toInt(),
+  defaultGroupLetter: json['default_пroup_дetter'] as String?,
   login: json['login'] as String,
-  blockClassExit: json['blockClassExit'] as bool,
+  blockClassExit: json['block_class_exit'] as bool,
   campus: json['campus'] as String,
-  card: json['card'] as String,
+  card: json['card'] as String?,
+  birthdayData: json['birthday_data'] as String?,
+  extraInfo: json['extra_info'] as String?,
+  showContactToColleagues: json['show_contact_to_colleagues'] as bool?,
 );
 
 Map<String, dynamic> _$TeacherToJson(Teacher instance) => <String, dynamic>{
   'name': instance.name,
-  'defaultGroupNumber': instance.defaultGroupNumber,
-  'defaultGroupLetter': instance.defaultGroupLetter,
+  'default_group_number': instance.defaultGroupNumber,
+  'default_пroup_дetter': instance.defaultGroupLetter,
   'login': instance.login,
-  'blockClassExit': instance.blockClassExit,
+  'block_class_exit': instance.blockClassExit,
   'campus': instance.campus,
   'card': instance.card,
+  'birthday_data': instance.birthdayData,
+  'extra_info': instance.extraInfo,
+  'show_contact_to_colleagues': instance.showContactToColleagues,
 };

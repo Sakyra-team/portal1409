@@ -17,10 +17,18 @@ class CreateExitScreen extends StatefulWidget {
 class _CreateExitScreenState extends State<CreateExitScreen> {
   final TextEditingController controllerFIO = TextEditingController();
   final TextEditingController controllerSymbol = TextEditingController();
+
   @override
   void initState() {
     super.initState();
     context.read<CreateExitCubit>().init();
+  }
+
+  @override
+  void dispose() {
+    controllerFIO.dispose();
+    controllerSymbol.dispose();
+    super.dispose();
   }
 
   @override

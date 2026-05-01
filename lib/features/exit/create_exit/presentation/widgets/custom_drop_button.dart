@@ -8,10 +8,12 @@ class CustomDropButton extends StatefulWidget {
     required this.placeholder,
     required this.list,
     this.onSelect,
+    this.isError,
   });
 
   final String placeholder;
   final List<List> list;
+  final bool? isError;
 
   final void Function(String? value)? onSelect;
 
@@ -56,7 +58,11 @@ class _CustomDropButtonState extends State<CustomDropButton> {
           height: 80,
           decoration: BoxDecoration(
             color: theme.cardColor,
-            border: .all(color: theme.dividerColor),
+            border: .all(
+              color: widget.isError == true
+                  ? theme.colorScheme.error
+                  : theme.dividerColor,
+            ),
             borderRadius: .circular(21),
           ),
           child: Row(

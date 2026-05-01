@@ -189,18 +189,18 @@ class _ListExitPageState extends State<ListExitPage> {
       result.add(
         DeskriptionCard(
           text: "${element.name} ${element.group}",
-          date: element.is_deleted
+          date: element.isDeleted
               ? "Заявка удалена"
-              : calcListExitDate(element.created_at),
-          time: element.is_deleted ? "" : calcListExitTime(element.created_at),
+              : calcListExitDate(element.createdAt),
+          time: element.isDeleted ? "" : calcListExitTime(element.createdAt),
           leading: Icons.directions_run_outlined,
           action: Icons.arrow_forward_ios,
           func: () => context.router.push(
             InfoExitRoute(
               uuid: element.id,
               name: "${element.name} ${element.group.toUpperCase()}",
-              iat: calcListExitDate(element.created_at),
-              isDeactivate: element.is_deleted,
+              iat: calcListExitDate(element.createdAt),
+              isDeactivate: element.isDeleted,
             ),
           ),
           actionFunc: () => showCustomAlert(
@@ -208,7 +208,7 @@ class _ListExitPageState extends State<ListExitPage> {
             "${element.name} ${element.group}",
             "Закрыть",
             subtitileText:
-                "Причина: ${element.cause}\nДата создания заявки: ${calcListExitDate(element.created_at)}\nИспользовано: ${element.usedAt != null ? calcListExitDate(element.created_at) : "Не использована"}\nСоздал заявку: ${element.teacher_name}",
+                "Причина: ${element.cause}\nДата создания заявки: ${calcListExitDate(element.createdAt)}\nИспользовано: ${element.usedAt != null ? calcListExitDate(element.createdAt) : "Не использована"}\nСоздал заявку: ${element.teacherName}",
             isCenter: true,
           ),
         ),

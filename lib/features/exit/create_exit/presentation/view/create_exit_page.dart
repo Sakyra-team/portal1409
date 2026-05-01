@@ -5,7 +5,7 @@ import 'package:portal1409/features/exit/create_exit/cubit/create_exit_cubit.dar
 import 'package:portal1409/features/exit/create_exit/data/create_exit_data.dart';
 import 'package:portal1409/features/exit/create_exit/presentation/widgets/widgets.dart';
 
-class CreateExitPage extends StatelessWidget {
+class CreateExitPage extends StatefulWidget {
   const CreateExitPage({
     super.key,
     required this.controllerFIO,
@@ -15,15 +15,20 @@ class CreateExitPage extends StatelessWidget {
   final TextEditingController controllerFIO;
   final TextEditingController controllerSymbol;
 
-  static String? classNumberValue = null;
-  static String? causeValue = null;
-  static String? timeValue = null;
+  @override
+  State<CreateExitPage> createState() => _CreateExitPageState();
+}
 
-  static late bool isErrorName = false;
-  static bool isErrorNumber = false;
-  static bool isErrorSymbol = false;
-  static bool isErrorCause = false;
-  static bool isErrorTime = false;
+class _CreateExitPageState extends State<CreateExitPage> {
+  late String? classNumberValue = null;
+  late String? causeValue = null;
+  late String? timeValue = null;
+
+  late bool isErrorName = false;
+  late bool isErrorNumber = false;
+  late bool isErrorSymbol = false;
+  late bool isErrorCause = false;
+  late bool isErrorTime = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +36,24 @@ class CreateExitPage extends StatelessWidget {
 
     return ListView(
       children: [
-        const SizedBox(height: 28),
+        const SizedBox(height: 20),
         Text(
           "Создание заявки",
           textAlign: .center,
           style: theme.textTheme.titleLarge,
         ),
 
-        const SizedBox(height: 32),
+        const SizedBox(height: 40),
 
         Text("  ФИО учащегося", style: theme.textTheme.titleMedium),
 
         const SizedBox(height: 12),
 
-        BasicTextField(controller: controllerFIO, placeholder: "ФИО"),
+        BasicTextField(
+          controller: widget.controllerFIO,
+          placeholder: "ФИО",
+          isError: isErrorName,
+        ),
 
         const SizedBox(height: 26),
 
@@ -58,9 +67,14 @@ class CreateExitPage extends StatelessWidget {
               placeholder: "Цифра",
               list: classList,
               onSelect: (value) => classNumberValue = value,
+              isError: isErrorNumber,
             ),
             const SizedBox(width: 8),
-            SmallTextField(controller: controllerSymbol, placeholder: "Буква"),
+            SmallTextField(
+              controller: widget.controllerSymbol,
+              placeholder: "Буква",
+              isError: isErrorSymbol,
+            ),
           ],
         ),
 
@@ -74,6 +88,7 @@ class CreateExitPage extends StatelessWidget {
           list: causeList,
           placeholder: "--",
           onSelect: (value) => causeValue = value,
+          isError: isErrorCause,
         ),
 
         const SizedBox(height: 12),
@@ -82,6 +97,7 @@ class CreateExitPage extends StatelessWidget {
           list: timeList,
           placeholder: "Время выхода (после)",
           onSelect: (value) => timeValue = value,
+          isError: isErrorTime,
         ),
 
         const SizedBox(height: 24),
@@ -89,20 +105,30 @@ class CreateExitPage extends StatelessWidget {
         BasicButton(
           text: "Создать заявку",
           onTap: () async {
-            if (controllerFIO.text == "") {
-              isErrorName = true;
+            if (widget.controllerFIO.text == "") {
+              setState(() => isErrorName = true);
+            }  else {
+              setState(() => isErrorName =false);
             }
-            if (controllerSymbol.text == "") {
-              isErrorSymbol = true;
+            if (widget.controllerSymbol.text == "") {
+              setState(() => isErrorSymbol = true);
+            } else {
+              setState(() => isErrorSymbol =false);
             }
             if (classNumberValue == null) {
-              isErrorNumber = true;
+              setState(() => isErrorNumber = true);
+            } else {
+              setState(() => isErrorNumber =false);
             }
             if (causeValue == null) {
-              isErrorCause = true;
+              setState(() => isErrorCause = true);
+            } else {
+              setState(() => isErrorCause =false);
             }
             if (timeValue == null) {
-              isErrorTime = true;
+              setState(() => isErrorTime = true);
+            } else {
+              setState(() => isErrorTime =false);
             }
 
             if (!isErrorName &&
@@ -111,9 +137,9 @@ class CreateExitPage extends StatelessWidget {
                 !isErrorSymbol &&
                 !isErrorTime) {
               await context.read<CreateExitCubit>().createApplication(
-                controllerFIO.text,
+                widget.controllerFIO.text,
                 classNumberValue!,
-                controllerSymbol.text,
+                widget.controllerSymbol.text,
                 causeValue!,
                 timeValue!,
               );

@@ -11,6 +11,8 @@ final class SmsInitial extends SmsState {}
 
 final class SmsLoading extends SmsState {}
 
+final class SmsLoadingAccountInfo extends SmsState {}
+
 final class SmsLoaded extends SmsState {}
 
 final class SmsException extends SmsState {}

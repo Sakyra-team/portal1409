@@ -88,6 +88,8 @@ final ApiClient apiClient = ApiClient(dio);
 final Talker talker = TalkerFlutter.init();
 final CookieManager cookieManager = CookieManager.instance();
 
+const String baseUrl = "http://127.0.0.1:1409";
+
 Future<void> loadConfig() async {
   dio.interceptors.add(
     TalkerDioLogger(
@@ -102,7 +104,7 @@ Future<void> loadConfig() async {
 
   try {
     await cookieManager.setCookie(
-      url: WebUri("http://127.0.0.1:1409"),
+      url: WebUri(baseUrl),
       name: "remember",
       value: await loginManager.getRememberToken() ?? "",
       path: "/",
@@ -110,7 +112,7 @@ Future<void> loadConfig() async {
     );
 
     await cookieManager.setCookie(
-      url: WebUri("http://127.0.0.1:1409"),
+      url: WebUri(baseUrl),
       name: "session",
       value: await loginManager.getSession() ?? "",
       path: "/",
@@ -124,8 +126,10 @@ Future<void> loadConfig() async {
 
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final ServiceRepository serviceRepository = ServiceRepository(prefs: prefs);
+  final AccountRepository accountRepository = AccountRepository(prefs: prefs);
 
   getIt.registerLazySingleton<ApiClient>(() => apiClient);
   getIt.registerLazySingleton<LoginRepository>(() => loginManager);
   getIt.registerLazySingleton<ServiceRepository>(() => serviceRepository);
+  getIt.registerLazySingleton<AccountRepository>(() => accountRepository);
 }

@@ -8,11 +8,13 @@ class SmallCustomDropButton extends StatefulWidget {
     required this.placeholder,
     required this.list,
     this.onSelect,
+    this.isError,
   });
 
   final String placeholder;
   final List<List> list;
   final void Function(String? value)? onSelect;
+  final bool? isError;
 
   @override
   State<SmallCustomDropButton> createState() => _SmallCustomDropButtonState();
@@ -54,7 +56,7 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
           padding: const .only(right: 12, left: 24),
           decoration: BoxDecoration(
             color: theme.cardColor,
-            border: .all(color: theme.dividerColor),
+            border: .all(color: widget.isError == true ? theme.colorScheme.error :  theme.dividerColor),
             borderRadius: .all(.circular(21)),
           ),
           child: Row(

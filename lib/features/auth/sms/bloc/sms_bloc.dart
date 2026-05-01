@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:get_it/get_it.dart';
 import 'package:portal1409/api/api.dart';
+import 'package:portal1409/repository/account/account_repository.dart';
 
 part 'sms_event.dart';
 part 'sms_state.dart';
@@ -21,7 +23,27 @@ class SmsBloc extends Bloc<SmsEvent, SmsState> {
             emit(SmsExceptionTeacher());
           }
         } else {
+          emit(SmsLoadingAccountInfo());
+
+          final infoResponse = await apiClient.teacherInfo();
+
+          await GetIt.I<AccountRepository>().save(
+            infoResponse.name,
+            infoResponse.defaultGroupNumber ?? 0,
+            infoResponse.defaultGroupLetter ?? "",
+            infoResponse.login,
+            infoResponse.blockClassExit,
+            infoResponse.campus,
+            infoResponse.card ?? "",
+            infoResponse.birthdayData ?? "",
+            infoResponse.extraInfo ?? "",
+            infoResponse.showContactToColleagues ?? false,
+          );
+
+
+
           emit(SmsLoaded());
+
         }
       } catch (e) {
         emit(SmsException());

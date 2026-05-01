@@ -1,9 +1,9 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:portal1409/repository/auth/login_repository_abstract.dart';
+import 'package:portal1409/repository/auth/login_repository_interface.dart';
 
 final secureStorage = FlutterSecureStorage();
 
-class LoginRepository implements LoginRepositoryAbstract {
+class LoginRepository implements LoginRepositoryInterface {
   @override
   Future<void> saveTokens(String session, String rememberToken) async {
     await secureStorage.write(key: "session", value: session);

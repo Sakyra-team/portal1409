@@ -61,6 +61,21 @@ class _SmsScreenState extends State<SmsScreen> {
       return SmsPage(controller: controller, phone: widget.phoneNumber);
     } else if (state is SmsLoading) {
       return const Center(child: CircularProgressIndicator());
+    } else if (state is SmsLoadingAccountInfo) {
+      return Center(
+        child: Column(
+          mainAxisSize: .min,
+          children: [
+            CircularProgressIndicator(),
+            const SizedBox(height: 12),
+            Text(
+              "Загрузка\nданных пользователя",
+              softWrap: true,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ],
+        ),
+      );
     } else if (state is SmsLoaded) {
       return Center(
         child: Text(

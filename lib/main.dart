@@ -9,6 +9,7 @@ import 'package:portal1409/features/exit/info_exit/cubit/info_exit_cubit.dart';
 import 'package:portal1409/features/exit/list_exit/cubit/list_exit_cubit.dart';
 import 'package:portal1409/features/home/main/cubit/lift_cubit.dart';
 import 'package:portal1409/features/home/services/cubit/service_cubit.dart';
+import 'package:portal1409/repository/account/account_repository.dart';
 import 'package:portal1409/repository/repository.dart';
 import 'package:portal1409/router/router.dart';
 import 'package:portal1409/theme/theme.dart';

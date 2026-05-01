@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/exit/info_exit/cubit/info_exit_cubit.dart';
 import 'package:portal1409/features/exit/info_exit/presentation/widgets/widgets.dart';
+import 'package:portal1409/main.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -50,7 +51,7 @@ class _InfoExitScreenState extends State<InfoExitScreen> {
                 Expanded(
                   child: Center(
                     child: QrImageView(
-                      data: "https://my1409.ru/application/${widget.uuid}",
+                      data: "$baseUrl/application/${widget.uuid}",
                       version: QrVersions.auto,
                       eyeStyle: const QrEyeStyle(color: Colors.white),
                       dataModuleStyle: const QrDataModuleStyle(
@@ -66,7 +67,7 @@ class _InfoExitScreenState extends State<InfoExitScreen> {
                   onTap: () => SharePlus.instance.share(
                     ShareParams(
                       uri: .parse(
-                        "https://my1409.ru/application/${widget.uuid}",
+                        "$baseUrl/application/${widget.uuid}",
                       ),
                     ),
                   ),

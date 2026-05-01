@@ -1,9 +1,9 @@
-import 'package:portal1409/repository/service/service_repository_abstract.dart';
+import 'package:portal1409/repository/service/service_repository_interface.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const String _baseName = "favorite";
 
-class ServiceRepository implements ServiceRepositoryAbstract {
+class ServiceRepository implements ServiceRepositoryInterface {
   ServiceRepository({required this.prefs});
   final SharedPreferences prefs;
 
