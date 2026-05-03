@@ -102,9 +102,9 @@ Future<void> loadConfig() async {
     ),
   );
 
-  try {
+  
     await cookieManager.setCookie(
-      url: WebUri(baseUrl),
+      url: WebUri("$baseUrl/"),
       name: "remember",
       value: await loginManager.getRememberToken() ?? "",
       path: "/",
@@ -118,9 +118,6 @@ Future<void> loadConfig() async {
       path: "/",
       isSecure: false,
     );
-  } catch (e) {
-    // TODO
-  }
 
   dio.interceptors.add(DioInterceptor(loginManager, dio));
 

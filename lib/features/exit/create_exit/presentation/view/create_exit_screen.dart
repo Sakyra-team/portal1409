@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/exit/create_exit/cubit/create_exit_cubit.dart';
 import 'package:portal1409/features/exit/create_exit/presentation/view/create_exit_page.dart';
+import 'package:portal1409/repository/account/account_repository.dart';
 import 'package:portal1409/router/router.dart';
 
 @RoutePage()
@@ -21,6 +23,7 @@ class _CreateExitScreenState extends State<CreateExitScreen> {
   @override
   void initState() {
     super.initState();
+    controllerSymbol.text = GetIt.I<AccountRepository>().getGroupSymbol() ?? "";
     context.read<CreateExitCubit>().init();
   }
 

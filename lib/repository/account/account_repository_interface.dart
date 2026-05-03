@@ -23,4 +23,12 @@ abstract interface class AccountRepositoryInterface {
   int? getGroupNumber();
 
   String? getGroupSymbol();
+
+  String? getCampus();
+
+  String? getExtraInfo();
+
+  bool? getBlockClassExit();
+
+  bool? getShowContactToColleagues();
 }

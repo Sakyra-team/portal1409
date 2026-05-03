@@ -7,6 +7,7 @@ import 'package:portal1409/features/auth/sms/bloc/sms_bloc.dart';
 import 'package:portal1409/features/exit/create_exit/cubit/create_exit_cubit.dart';
 import 'package:portal1409/features/exit/info_exit/cubit/info_exit_cubit.dart';
 import 'package:portal1409/features/exit/list_exit/cubit/list_exit_cubit.dart';
+import 'package:portal1409/features/home/account/presentation/cubit/account_cubit.dart';
 import 'package:portal1409/features/home/main/cubit/lift_cubit.dart';
 import 'package:portal1409/features/home/services/cubit/service_cubit.dart';
 import 'package:portal1409/repository/account/account_repository.dart';
@@ -27,10 +28,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await loadConfig();
-
+ 
   // loginManager.logout();
 
   // GetIt.I<ServiceRepository>().removeAllFavorite();
+  // GetIt.I<AccountRepository>().remove();
 
   runApp(const MobileApp());
 }
@@ -49,7 +51,8 @@ class MobileApp extends StatelessWidget {
         BlocProvider(create: (context) => ServiceCubit()),
         BlocProvider(create: (context) => ListExitCubit(apiClient: apiClient)),
         BlocProvider(create: (context) => CreateExitCubit(apiClient: apiClient)),
-        BlocProvider(create: (context) => InfoExitCubit(apiClient: apiClient))
+        BlocProvider(create: (context) => InfoExitCubit(apiClient: apiClient)),
+        BlocProvider(create: (context) => AccountCubit(apiClient: apiClient))
       ],
       child: MaterialApp.router(
         title: 'Портал 1409',

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/home/services/data/service_enum.dart';
 
 final Map<ServiceEnum, Map<int, Map<String, dynamic>>> servicesMap = {
@@ -18,26 +17,14 @@ final Map<ServiceEnum, Map<int, Map<String, dynamic>>> servicesMap = {
     4: {"text": "Лифт", "icon": Icons.elevator_outlined, "func": "/lift"},
   },
   ServiceEnum.alerts: {
-    5: {
-      "text": "Радио",
-      "icon": Icons.radio_outlined,
-      "func": "/radio",
-    },
-    6: {
-      "text": "Звонки",
-      "icon": Icons.call_outlined,
-      "func": "/bells",
-    },
+    5: {"text": "Радио", "icon": Icons.radio_outlined, "func": "/radio"},
+    6: {"text": "Звонки", "icon": Icons.call_outlined, "func": "/bells"},
     7: {
       "text": "Громкая связь",
       "icon": Icons.speaker_outlined,
       "func": "/announcer",
     },
-    8: {
-      "text": "Новости",
-      "icon": Icons.newspaper_outlined,
-      "func": "/news",
-    },
+    8: {"text": "Новости", "icon": Icons.newspaper_outlined, "func": "/news"},
   },
   ServiceEnum.polygon: {
     9: {
@@ -78,16 +65,8 @@ final Map<ServiceEnum, Map<int, Map<String, dynamic>>> servicesMap = {
       "icon": Icons.school_outlined,
       "func": "/alumni",
     },
-    16: {
-      "text": "АдминЛифт",
-      "icon": Icons.elevator,
-      "func": "/lift/admin",
-    },
-    17: {
-      "text": "Сканер",
-      "icon": Icons.scanner_outlined,
-      "func": "/scanner",
-    },
+    16: {"text": "АдминЛифт", "icon": Icons.elevator, "func": "/lift/admin"},
+    17: {"text": "Сканер", "icon": Icons.scanner_outlined, "func": "/scanner"},
     18: {
       "text": "Заявки совет",
       "icon": Icons.help_center_outlined,
@@ -110,31 +89,19 @@ final Map<int, Map<String, dynamic>> servicesMapWithout = {
   2: {
     "text": "Заявки на карты",
     "icon": Icons.payment_outlined,
-    "func": () async => await openLink("admin/card-applications"),
+    "func": "/card/requests",
   },
   3: {"text": "Мероприятия", "icon": Icons.event_outlined, "func": "/events"},
   4: {"text": "Лифт", "icon": Icons.elevator_outlined, "func": "/lift"},
 
-  5: {
-    "text": "Радио",
-    "icon": Icons.radio_outlined,
-    "func": () async => await openLink("scheduled-announcements/admin"),
-  },
-  6: {
-    "text": "Звонки",
-    "icon": Icons.call_outlined,
-    "func": () async => await openLink("bells/admin"),
-  },
+  5: {"text": "Радио", "icon": Icons.radio_outlined, "func": "/radio"},
+  6: {"text": "Звонки", "icon": Icons.call_outlined, "func": "/bells"},
   7: {
     "text": "Громкая связь",
     "icon": Icons.speaker_outlined,
     "func": "/announcer",
   },
-  8: {
-    "text": "Новости",
-    "icon": Icons.newspaper_outlined,
-    "func": () async => await openLink("admin/news"),
-  },
+  8: {"text": "Новости", "icon": Icons.newspaper_outlined, "func": "/news"},
 
   9: {
     "text": "B.A.R.I.N.",
@@ -144,12 +111,12 @@ final Map<int, Map<String, dynamic>> servicesMapWithout = {
   10: {
     "text": "IT-резиденты",
     "icon": Icons.people_outline,
-    "func": () async => await openLink("admin/polygon/residents"),
+    "func": "/it_rezidents",
   },
   11: {
     "text": "IT-полигон",
     "icon": Icons.polymer_outlined,
-    "func": () async => await openLink("it-polygon"),
+    "func": "/it_polygon",
   },
 
   12: {
@@ -160,36 +127,24 @@ final Map<int, Map<String, dynamic>> servicesMapWithout = {
   13: {
     "text": "Учителя",
     "icon": Icons.people_alt_outlined,
-    "func": () async => await openLink("admin/users"),
+    "func": "/teachers",
   },
   14: {
     "text": "Зачисления",
     "icon": Icons.add_chart_outlined,
-    "func": () async => await openLink("enrollment/view/5"),
+    "func": "/enrollment",
   },
-  15: {
-    "text": "Выпускники",
-    "icon": Icons.school_outlined,
-    "func": () async => await openLink("alumni_admin"),
-  },
-  16: {
-    "text": "АдминЛифт",
-    "icon": Icons.elevator,
-    "func": () async => await openLink("lift_log"),
-  },
-  17: {
-    "text": "Сканер",
-    "icon": Icons.scanner_outlined,
-    "func": () async => await openLink("1409qr"),
-  },
+  15: {"text": "Выпускники", "icon": Icons.school_outlined, "func": "/alumni"},
+  16: {"text": "АдминЛифт", "icon": Icons.elevator, "func": "/lift/admin"},
+  17: {"text": "Сканер", "icon": Icons.scanner_outlined, "func": "/scanner"},
   18: {
     "text": "Заявки совет",
     "icon": Icons.help_center_outlined,
-    "func": () async => await openLink("admin/sovet-applications"),
+    "func": "/sovet/request",
   },
   19: {
     "text": "Реестр спортсменов",
     "icon": Icons.sports_baseball_outlined,
-    "func": () async => await openLink("athlete_permissions"),
+    "func": "/exit/sportsman",
   },
 };

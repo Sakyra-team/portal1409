@@ -23,14 +23,14 @@ class Teacher {
   final String name;
   @JsonKey(name: "default_group_number")
   final int? defaultGroupNumber;
-  @JsonKey(name: "default_пroup_дetter")
+  @JsonKey(name: "default_group_letter")
   final String? defaultGroupLetter;
   final String login;
   @JsonKey(name: "block_class_exit")
   final bool blockClassExit;
   final String campus;
   final String? card;
-  @JsonKey(name: "birthday_data")
+  @JsonKey(name: "birth_date")
   final String? birthdayData;
   @JsonKey(name: "extra_info")
   final String? extraInfo;

@@ -78,5 +78,12 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: ScannerRoute.page, path: "/scanner", guards: [AuthGuard()]),
     AutoRoute(page: SovetRequestRoute.page, path: "/sovet/request", guards: [AuthGuard()]),
     AutoRoute(page: SportsmanRegeditRoute.page, path: "/exit/sportsman", guards: [AuthGuard()]),
+
+
+
+
+
+    AutoRoute(page: CreateStudentRoute.page, path: "/account/students/create", guards: [AuthGuard()]),
+
   ];
 }

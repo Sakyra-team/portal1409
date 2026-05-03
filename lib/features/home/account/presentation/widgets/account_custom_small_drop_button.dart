@@ -2,31 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/exit/create_exit/domain/create_exit_get_text.dart';
 
-class SmallCustomDropButton extends StatefulWidget {
-  const SmallCustomDropButton({
+class AccountSmallCustomDropButton extends StatefulWidget {
+  const AccountSmallCustomDropButton({
     super.key,
     required this.placeholder,
     required this.list,
     this.onSelect,
     this.isError,
+    this.defaultText,
   });
 
   final String placeholder;
   final List<List> list;
   final void Function(String? value)? onSelect;
   final bool? isError;
+  final String? defaultText;
 
   @override
-  State<SmallCustomDropButton> createState() => _SmallCustomDropButtonState();
+  State<AccountSmallCustomDropButton> createState() => _AccountSmallCustomDropButtonState();
 }
 
-class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
+class _AccountSmallCustomDropButtonState extends State<AccountSmallCustomDropButton> {
   final GlobalKey _key = GlobalKey();
   final LayerLink _link = LayerLink();
 
   late bool isOpenOverlay = false;
 
-  late String? text = null;
+  late String? text = widget.defaultText;
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +53,16 @@ class _SmallCustomDropButtonState extends State<SmallCustomDropButton> {
           widget.onSelect?.call(text);
         },
         child: Container(
-          width: MediaQuery.sizeOf(context).width / 2 - 16,
+          width: MediaQuery.sizeOf(context).width / 2 - 28,
           height: 80,
           padding: const .only(right: 12, left: 24),
           decoration: BoxDecoration(
             color: theme.cardColor,
-            border: .all(color: widget.isError == true ? theme.colorScheme.error :  theme.dividerColor),
+            border: .all(
+              color: widget.isError == true
+                  ? theme.colorScheme.error
+                  : theme.dividerColor,
+            ),
             borderRadius: .all(.circular(21)),
           ),
           child: Row(

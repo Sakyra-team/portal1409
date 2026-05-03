@@ -154,6 +154,53 @@ class CreateExitRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CreateStudentScreen]
+class CreateStudentRoute extends PageRouteInfo<CreateStudentRouteArgs> {
+  CreateStudentRoute({
+    Key? key,
+    required String link,
+    List<PageRouteInfo>? children,
+  }) : super(
+         CreateStudentRoute.name,
+         args: CreateStudentRouteArgs(key: key, link: link),
+         initialChildren: children,
+       );
+
+  static const String name = 'CreateStudentRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<CreateStudentRouteArgs>();
+      return CreateStudentScreen(key: args.key, link: args.link);
+    },
+  );
+}
+
+class CreateStudentRouteArgs {
+  const CreateStudentRouteArgs({this.key, required this.link});
+
+  final Key? key;
+
+  final String link;
+
+  @override
+  String toString() {
+    return 'CreateStudentRouteArgs{key: $key, link: $link}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CreateStudentRouteArgs) return false;
+    return key == other.key && link == other.link;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ link.hashCode;
+}
+
+/// generated route for
 /// [DevicesScreen]
 class DevicesRoute extends PageRouteInfo<void> {
   const DevicesRoute({List<PageRouteInfo>? children})

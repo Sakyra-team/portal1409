@@ -6,11 +6,6 @@ import 'package:dio/dio.dart';
 
 part 'api.g.dart';
 
-// const domainName = "http://10.0.2.2:1409/api";
-// const String domainName = "https://my1409.ru/api";
-// const domainName = "http://192.168.1.75:1409/api";
-// const String domainName = "http://10.225.167.3:1409/api";
-
 @RestApi(baseUrl: baseUrl)
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
@@ -65,21 +60,27 @@ abstract class ApiClient {
   */
 
   @POST("/api/teacher") // edit teacher info
-  Future<EditTeacher> editTeacherInfo();
+  Future<EditTeacher> editTeacherInfo(@Body() Map<String, dynamic> body);
   /*
   input data:
     {
-      'name': f'{current_user.surname} {current_user.name} {current_user.lastname}',
-      'default_group_number': current_user.default_group_number,
-      'default_group_letter': current_user.default_group_letter,
-      'login': current_user.login,
-      'block_class_exit': current_user.block_class_exit,
-      'campus': current_user.campus,
-      'card': card_status
+      "birth_date": "02.07",
+      "block_class_exit": true,
+      "campus": "modern",
+      "card": null,
+      "default_group_letter": "Я",
+      "default_group_number": 8,
+      "extra_info": "",
+      "login": "sakyra568@gmail.com",
+      "name": "Sakyra ser sakquer",
+      "show_contact_to_colleagues": null
     }
   output data:
     {'status': 'success'}, 200
   */
+
+  @GET("/api/teacher/registration-link")
+  Future<RegisterLink> getRegisterStudentLink();
 
   // ----------------
   // Lfit application
@@ -126,9 +127,7 @@ abstract class ApiClient {
   */
 
   @GET("/api/teacher/history") // Get exit application histroy
-  Future<List<HistoryExitAppInfo>> getExitAppHistory(
-    @Query("/apiall") bool? isAll,
-  );
+  Future<List<HistoryExitAppInfo>> getExitAppHistory(@Query("all") bool? isAll);
   /*
   output data:
   [{

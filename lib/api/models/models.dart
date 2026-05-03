@@ -6,3 +6,4 @@ export './lift.dart';
 export './phone_send.dart';
 export './teacher.dart';
 export 'exit_close.dart';
+export 'register_link.dart';

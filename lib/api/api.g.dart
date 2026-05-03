@@ -105,11 +105,12 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<EditTeacher> editTeacherInfo() async {
+  Future<EditTeacher> editTeacherInfo(Map<String, dynamic> body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(body);
     final _options = _setStreamType<EditTeacher>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
@@ -124,6 +125,33 @@ class _ApiClient implements ApiClient {
     late EditTeacher _value;
     try {
       _value = EditTeacher.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<RegisterLink> getRegisterStudentLink() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<RegisterLink>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/teacher/registration-link',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late RegisterLink _value;
+    try {
+      _value = RegisterLink.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
@@ -272,7 +300,7 @@ class _ApiClient implements ApiClient {
   @override
   Future<List<HistoryExitAppInfo>> getExitAppHistory(bool? isAll) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'/apiall': isAll};
+    final queryParameters = <String, dynamic>{r'all': isAll};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;

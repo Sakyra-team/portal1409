@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:portal1409/core/core.dart';
 import 'package:portal1409/features/exit/create_exit/cubit/create_exit_cubit.dart';
 import 'package:portal1409/features/exit/create_exit/data/create_exit_data.dart';
 import 'package:portal1409/features/exit/create_exit/presentation/widgets/widgets.dart';
+import 'package:portal1409/repository/account/account_repository.dart';
 
 class CreateExitPage extends StatefulWidget {
   const CreateExitPage({
@@ -20,7 +22,7 @@ class CreateExitPage extends StatefulWidget {
 }
 
 class _CreateExitPageState extends State<CreateExitPage> {
-  late String? classNumberValue = null;
+  late String? classNumberValue = GetIt.I<AccountRepository>().getGroupNumber().toString();
   late String? causeValue = null;
   late String? timeValue = null;
 
@@ -68,6 +70,7 @@ class _CreateExitPageState extends State<CreateExitPage> {
               list: classList,
               onSelect: (value) => classNumberValue = value,
               isError: isErrorNumber,
+              defaultText: GetIt.I<AccountRepository>().getGroupNumber().toString(),
             ),
             const SizedBox(width: 8),
             SmallTextField(

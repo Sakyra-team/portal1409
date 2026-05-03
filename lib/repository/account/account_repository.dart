@@ -59,4 +59,16 @@ class AccountRepository implements AccountRepositoryInterface {
 
   @override
   String? getGroupSymbol() => prefs.getString("groupLetter");
+
+  @override
+  String? getCampus() => prefs.getString("campus");
+
+  @override
+  String? getExtraInfo() => prefs.getString("extraInfo");
+
+  @override
+  bool? getBlockClassExit() => prefs.getBool("blockClassExit");
+
+  @override
+  bool? getShowContactToColleagues() => prefs.getBool("showContactToColleagues");
 }

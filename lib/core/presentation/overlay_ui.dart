@@ -113,6 +113,12 @@ class _OverlayUIState extends State<OverlayUI>
                             splashColor: theme.splashColor,
                             highlightColor: theme.splashColor.withAlpha(67),
                             splashFactory: InkRipple.splashFactory,
+                            borderRadius: index == 0
+                                ? const .only(
+                                    topLeft: .circular(15),
+                                    topRight: .circular(15),
+                                  )
+                                : null,
                             onTap: () async => await close(index),
                             child: Padding(
                               padding: const .symmetric(
